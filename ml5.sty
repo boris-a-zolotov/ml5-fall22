@@ -1,0 +1,155 @@
+%────────────────────────
+%	usepackages
+%────────────────────────
+
+\RequirePackage[margin=1.15in,bottom=1.1in]{geometry}
+\RequirePackage{amsmath,amssymb,amsthm,mathtools}
+\RequirePackage{graphicx,caption,subcaption,makecell}
+\RequirePackage{titletoc,tocloft,hyperref,fancyhdr}
+\RequirePackage{enumerate,enumitem,indentfirst,euscript}
+\RequirePackage{alphalph,algorithm}
+\RequirePackage[noend]{algpseudocode}
+\RequirePackage[backend=biber,style=alphabetic]{biblatex}
+\RequirePackage{comment}
+
+%% Order is important
+\RequirePackage[small]{complexity}
+\hypersetup{unicode=true}
+
+\RequirePackage[utf8]{inputenc}
+\RequirePackage{cmap}
+\RequirePackage[T2A]{fontenc}
+\RequirePackage{csquotes}
+\RequirePackage[russian]{babel}
+\RequirePackage{xspace}
+
+\RequirePackage{tikz}
+\usetikzlibrary{arrows,backgrounds,patterns,matrix,
+	shapes,fit,calc,shadows,plotmarks,snakes}
+
+
+%────────────────────────
+%	tikz forests
+%────────────────────────
+\RequirePackage[linguistics]{forest}
+
+\forestset{
+  tria/.style={
+    node format={
+      \noexpand\node [
+      draw,
+      shape=regular polygon,
+      regular polygon sides=3,
+      inner sep=0pt,
+      outer sep=0pt,
+      \forestoption{node options},
+      anchor=\forestoption{anchor}
+      ]
+      (\forestoption{name}) {\foresteoption{content format}};
+    },
+    child anchor=parent,
+  }
+}
+
+
+%────────────────────────
+%	pagestyle
+%────────────────────────
+
+\linespread{1.12}
+\parindent=0.33in \footskip=0.35in \parskip=0.18cm
+\renewcommand{\labelenumi}{\arabic{enumi}) }
+\captionsetup[figure]{width=12.5cm}
+
+\begin{comment}
+	\pagestyle{fancy}
+	\renewcommand{\headrulewidth}{0cm}
+	\fancyhead[CO,CE,LO,LE,RO,RE]{ }
+	\fancyfoot[LO,LE,RO,RE]{ }
+	\fancyfoot[CO,CE]{{\rm\thepage}}
+\end{comment}
+
+
+%────────────────────────
+%	upright mathematical things
+%────────────────────────
+
+\newcommand{\bq}{{\mathbb Q}}
+\newcommand{\br}{{\mathbb R}}
+\newcommand{\bc}{{\mathbb C}}
+\newcommand{\bn}{{\mathbb N}}
+\newcommand{\bz}{{\mathbb Z}}
+
+\def\matrz{\text{\bf 0}}
+\DeclareMathOperator{\dist}{dist}
+\DeclareMathOperator{\size}{size}
+\DeclareMathOperator{\rect}{rect}
+\DeclareMathOperator{\opt}{OPT}
+\DeclareMathOperator{\maxind}{MAX\,IND}
+
+\def\l{\lambda}
+
+
+%────────────────────────
+%	theorems and statements
+%────────────────────────
+
+\newtheorem{exmpl}{Пример}
+\newtheorem{theorem}{Теорема}
+\newtheorem{lemma}[theorem]{Лемма}
+\newtheorem{corollary}[theorem]{Следствие}
+\newtheorem{conjecture}[theorem]{Гипотеза}
+\newtheorem{stat}[theorem]{Утверждение}
+\newtheorem{prop}[theorem]{Предложение}
+\newtheorem{clm}[theorem]{Утверждение}
+
+\theoremstyle{definition}
+\newtheorem{definition}{Определение}
+\newtheorem{task}{Задача}
+
+\newtheorem*{remark}{Замечание}
+
+
+%────────────────────────
+%	peculiarities
+%────────────────────────
+
+\newcommand\Lra{\Longrightarrow}
+\newcommand\eps{\varepsilon}
+\newcommand\vfi{\varphi}
+\newcommand{\arbs}{arborally satisfiable\xspace}
+
+\def\newthm#1{\begin{theorem} #1 \end{theorem}}
+\def\newdefn#1{\begin{definition} #1 \end{definition}}
+\def\newclm#1{\begin{clm} #1 \end{clm}}
+
+\def\tpl{«$+$»\xspace} \def\tmi{«$-$»\xspace}
+
+\newcommand{\noteauthor}[1]{\vspace{-5.5mm}
+     \begin{flushright}{\itshape Записал: #1}\end{flushright}}
+
+\newcommand{\noteauthoress}[1]{\vspace{-5.5mm}
+     \begin{flushright}{\itshape Записала: #1}\end{flushright}}
+
+
+%────────────────────────
+%	paired delimiters
+%────────────────────────
+
+\DeclarePairedDelimiter\lr{(}{)}
+\DeclarePairedDelimiter\set{\lbrace}{\rbrace}
+\DeclarePairedDelimiter\abs{\lvert}{\rvert}
+\DeclarePairedDelimiter\ceil{\lceil}{\rceil}
+\DeclarePairedDelimiter\floor{\lfloor}{\rfloor}
+\DeclarePairedDelimiter\segment{[}{]}
+
+\DeclarePairedDelimiterX{\map}[2]{\lbrace}{\rbrace}{#1 \,\delimsize\vert\,\mathopen{} #2}
+
+%────────────────────────
+%	titlepage
+%────────────────────────
+
+\title{Математическая логика — 2 \\ V семестр}
+\author{Лектор: Виктор Львович Селиванов \\ Записывал: {\it хто?} \\ Редактировал: Борис Алексеевич Золотов}
+\date{МКН СПбГУ, осень 2022}
+
