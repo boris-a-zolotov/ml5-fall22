@@ -1,0 +1,109 @@
+\begin{definition}
+    \textit{Предложение} в сигнатуре $\sigma$~— формула без свободных переменных.  
+
+    \begin{equation*}
+        \begin{aligned}
+            \varphi^{\mathfrak{A}} \in \{T, F\}, \\ 
+            \varphi^{\mathfrak{A}} = T \Lra \mathfrak{A} \models \varphi.
+        \end{aligned}
+    \end{equation*}
+\end{definition}
+
+\begin{definition} 
+    \textit{Моделью} данного множества предложения $\Gamma$ называется структура, в которой все предложения из $\Gamma$ истины. Если $\mathfrak{A}$~— это модель, то иногда пишут $\mathfrak{A} \models \Gamma$. 
+
+    Если $\Gamma$~— множество предложений, $\varphi$~— предложение. Говорят, что $\varphi$ логически следует из $\Gamma$ ($\Gamma \models \varphi$), если $\varphi$ истино в любой модели $\Gamma$. 
+\end{definition} 
+
+\begin{definition}
+    Предложение $\varphi$ называется тождественно истино, если оно истино в любой структуре. Иногда пишут $\models \varphi$. 
+\end{definition}
+
+\begin{stat} \ 
+    \begin{itemize}
+        \item $\Gamma \models \varphi$ тогда и только тогда, когда $\Gamma \cup \{\neg \varphi\}$ не имеет модели. 
+        \item $\varphi$~— тождественная истина тогда и только тогда, когда $\models \varphi$. 
+        \item $\Gamma$~— конечное; $\Gamma \models \varphi$ тогда и только тогда, когда $(\wedge \Gamma) \to \varphi$~— тожественная истина.
+    \end{itemize}
+\end{stat} 
+
+\subsection{4. Ультрафильтры и компактность} 
+
+\begin{definition}
+    Пусть $I$~— непустое множество. \textit{Фильтром} на множестве $I$ называется непустое множество $F \subseteq P(I)$ (где $P(I)$~— множество всех подмножеств), которое замкнуто относительно пересечения и взятия надмножеств и такое, что $\emptyset \notin F$.  
+
+    Фильтр $F$ называется \textit{ультрафильтром}, если $A \in F$ или $\overline{A} \in F$ для любого $A \subseteq I$. 
+\end{definition} 
+
+\begin{stat} \ 
+    \begin{itemize}
+        \item Фильтр $F$ является ультрафильтром тогда и только тогда, когда он является максимальным по включению среди всех фильтров (то есть, нет фильтра, который бы его расширял). 
+        \item Пусть $F$~— ультрафильтр и $A, \: B \subseteq I$, тогда $A \in F \Lra \overline{A} \notin F$; $A \cup B \in F \Lra A \in F$ или $B \in F$.
+        \item Любой фильтр содержится в некотором ультрафильтре.
+    \end{itemize}
+\end{stat}
+
+\begin{proof} \ 
+    \begin{itemize}
+        \item Пусть $F$~— ультрафильтр. Утверждается, что нет фильтра $F'$, который содержал бы $F$ ($F' \supseteq F$). Предположим противное, т.е. что существует такое $A$, что оно принадлежит $F'$ и не принадлежит $F$. Раз $A \notin F$, то $\overline{A} \in F$. В силу того, что $F \subseteq F'$, то $\overline{A}$ также принадлежит $F'$. Таким образом, $\emptyset = A \cap \overline{A} \in F'$, противоречие. 
+        
+        В обратную второну, $F$~— максимальный по влючению фильтр. От противного, пусть есть множество $A \subseteq I$ такое, что $A, \overline{A} \notin F$. Рассмотрим $F' = \{X \subseteq I | \exists B \in F (A \cap B \subseteq X)\}$. $F'$ должно быть фильтром (замкнутость вверх по включению понятна, замкнутость относительно пересечения также верна, так как если $X, Y \in F'$, $A \cap B \subseteq X$, $A \cap C \subseteq Y$ для $B, C \in F$, то $A \cap B \cap C \subseteq (X \cap Y)$. $B \cap C \in F$, а значит, $X \cap Y \in F'$. и последнее, если бы $\emptyset \in F'$, то получается очевидное противоречие из того, что $A \cap B$ всегда непусто). 
+        
+        \item Пусть $F$~— ультрафильтр. Одновременно $A$ и $\overline{A}$ принадлежать $F$ не могут. Имеем $A \in F \vee \overline{A} \in F$, откуда понятно. Второе утверждение очевидно в левую сторону.
+        
+        В другую сторону, имеем $A \cup B \in F$, предоположим противное. Пусть $A, B \notin F$, значит, $\overline{A}, \overline{B} \in F$, а тогда $\overline{A} \cap \overline{B} \in F$. По закону деМоргана, $\overline{A \cup B} \in F$, откуда $A \cup B \notin F$. 
+
+        \item Пусть имеется $F$. Утверждается, что существует ультрафильтр $F^*$, который сожержит $F$ ($F^* \supseteq F$). Данное утверждение нетривиально и в каком-то смысле схоже с аксиомой выбора. Применим лемму Цорна. \\ 
+        
+        \begin{lemma}[Цорн]
+            Пусть $(P; \leq)$~— частичный порядок, в котором всякая линейная цепь $A \supseteq P$ имеет верхнюю границу. Тогда в этом частичном порядке есть максимальный элемент. 
+        \end{lemma} 
+
+        Рассмотрим множество всех фильтров $P = \{G~— \text{ фильтр }| F \subseteq G\}$, и порядок $\subseteq$. Пусть $\mathfrak{F}$~— множество фильтров $F_1 \subseteq F_2 \vee F_2 \subseteq F$, а $F' = \bigcup \mathfrak{F}$. $F'$~— фильтр, что проверяется ручками. По лемме, существует $F^*$~— максимальное расширение. 
+    \end{itemize}
+\end{proof} 
+
+\begin{exmpl} \ 
+    \begin{itemize}
+        \item Пусть есть $I$, тогда $\{I\}$~— фильтр. 
+        \item Пусть $\emptyset \neq A \subseteq I$, тогда $F = \{X \subseteq | A \subseteq X\}$~— фильтр.
+    \end{itemize}
+\end{exmpl}
+
+\begin{task}
+    Если $I$ бесконечное, то в $P(I)$ есть неглавные ультрафильтры. Для доказательства рассматриваем $F = \{A \subseteq I | A~— \text{ коконечно}\}$, и существующий по доказанному ранее $F^* \supseteq F$. 
+\end{task} 
+
+Пусть имеется некоторое проиндексированное семейство $\sigma$-структур $\{\mathfrak{A}_i\}_{i \in I}$.  
+
+\begin{definition}[Декартово произведение]
+    $\mathfrak{A} = \prod_{i \in I} \mathfrak{A}_i$~— определяем $\sigma$-структуру.  
+    
+    $A = \prod_{i \in I} A_i$~— множество функций $a$ на множестве $I$, такое что $a(i) \in A_i$ для любого $i \in I$. $a : I \to \bigcup_{i \in I} A_i$~— проектирование ($a \mapsto a(i)$). $c^{\mathfrak{A}}(i) = c^{\mathfrak{A}_i}$, таким образом получается интерпретация константного символа. $f^{\mathfrak{A}}(a_1, \ldots, a_n)(i) = f^{\mathfrak{A}_i}(a_1(i), \ldots, a_n(i))$. Предикат $P^{\mathfrak{A}}(-//-) \Lra P^{\mathfrak{A}_i}(a_1(i), \ldots, a_n(i)) = T$ $\forall i \in I$. 
+
+    Если же имеется ещё и $F$~— фильтр на множестве $I$, определим \textit{фильтрованное произведение}, которое будем обозначать $\mathfrak{A}_F = \mathfrak{A} /_{\equiv_F}$. Эквивалентность определяется следующим образом. Пусть $a, b \in A$, тогда $a \equiv_F b \overset{\mathrm{def}}{\Lra} \{i \in I | a(i) = b(i)\} \in F$ ($a(i) = b(i)$ для $F$-большинства $i$). Нетрудно убедиться в том, что мы получили действительно отношение эквивалентности, и более того, отношение конгруэнтности на структуре $\mathfrak{A}$.  
+
+    $A /_{\equiv_F} \{[a] | a \in A\}$ соответственно отображению $A \xrightarrow{p} A /_{\equiv_F}$ ($a \mapsto [a]$) и $[a]_F = \{b | b \equiv_F a\}$.  
+    
+    $\mathfrak{A}_F = (A /_{\equiv_F}; I)$, где 
+
+    \begin{itemize}
+        \item $c^{\mathfrak{A}_F} = [c^{\mathfrak{A}}]$; 
+        \item $f^{\mathfrak{A}_F}([a_1], \ldots, [a_n]) = [f^{\mathfrak{A}}(a_1, \ldots, a_n)]$; 
+        \item $P^{\mathfrak{A}_F}([a_1], \ldots, [a_n])~— T \Lra P^{\mathfrak{A}_i} (a_1(i), \ldots, a_n(i))$ для $F$-большинства $i$. 
+    \end{itemize} 
+
+    Если $F$~— ультрапроизведение, то $\mathfrak{A} /_{F}$ называется \textit{ультрапроизведением}.
+\end{definition} 
+
+\begin{theorem}[об ультрапроизведениях]
+    Пусть $F$~— ультрафильтр на множестве $I$, $\mathfrak{A}_i$~— семейство стркутур, $\varphi(x_1, \ldots, x_k)$~— $\sigma$-формула и пусть $a_1, \ldots, a_k \in \prod_i A_i$. Тогда $\mathfrak{A}_F \models \varphi([a_1], \ldots, [a_k])$ тогда и только тогда, когда $\mathfrak{A}_i \models \varphi(a_1(i), \ldots, a_n(i))$ для $F$-большинства индексов.
+\end{theorem} \ 
+
+\begin{theorem}
+    Бесконечное множество $\Gamma$ имеет модель, если каждое его конечное поднмонжество $\Gamma$ имеет модель.
+\end{theorem}
+
+
+\end{document}
+
