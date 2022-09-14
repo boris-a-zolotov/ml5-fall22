@@ -3,14 +3,14 @@
 
     \begin{equation*}
         \begin{aligned}
-            \varphi^{\mathfrak{A}} \in \{T, F\}, \\ 
-            \varphi^{\mathfrak{A}} = T \Lra \mathfrak{A} \models \varphi.
+            \varphi^{\mathbb{A}} \in \{T, F\}, \\ 
+            \varphi^{\mathbb{A}} = T \Longleftrightarrow \mathbb{A} \models \varphi.
         \end{aligned}
     \end{equation*}
 \end{definition}
 
 \begin{definition} 
-    \textit{Моделью} данного множества предложения $\Gamma$ называется структура, в которой все предложения из $\Gamma$ истины. Если $\mathfrak{A}$~— это модель, то иногда пишут $\mathfrak{A} \models \Gamma$. 
+    \textit{Моделью} данного множества предложения $\Gamma$ называется структура, в которой все предложения из $\Gamma$ истины. Если $\mathbb{A}$~— это модель, то иногда пишут $\mathbb{A} \models \Gamma$. 
 
     Если $\Gamma$~— множество предложений, $\varphi$~— предложение. Говорят, что $\varphi$ логически следует из $\Gamma$ ($\Gamma \models \varphi$), если $\varphi$ истино в любой модели $\Gamma$. 
 \end{definition} 
@@ -27,7 +27,7 @@
     \end{itemize}
 \end{stat} 
 
-\subsection{4. Ультрафильтры и компактность} 
+\subsubsection{Ультрафильтры и компактность} 
 
 \begin{definition}
     Пусть $I$~— непустое множество. \textit{Фильтром} на множестве $I$ называется непустое множество $F \subseteq P(I)$ (где $P(I)$~— множество всех подмножеств), которое замкнуто относительно пересечения и взятия надмножеств и такое, что $\emptyset \notin F$.  
@@ -38,7 +38,7 @@
 \begin{stat} \ 
     \begin{itemize}
         \item Фильтр $F$ является ультрафильтром тогда и только тогда, когда он является максимальным по включению среди всех фильтров (то есть, нет фильтра, который бы его расширял). 
-        \item Пусть $F$~— ультрафильтр и $A, \: B \subseteq I$, тогда $A \in F \Lra \overline{A} \notin F$; $A \cup B \in F \Lra A \in F$ или $B \in F$.
+        \item Пусть $F$~— ультрафильтр и $A, \: B \subseteq I$, тогда $A \in F \Longleftrightarrow \overline{A} \notin F$; $A \cup B \in F \Longleftrightarrow A \in F$ или $B \in F$.
         \item Любой фильтр содержится в некотором ультрафильтре.
     \end{itemize}
 \end{stat}
@@ -53,7 +53,7 @@
         
         В другую сторону, имеем $A \cup B \in F$, предоположим противное. Пусть $A, B \notin F$, значит, $\overline{A}, \overline{B} \in F$, а тогда $\overline{A} \cap \overline{B} \in F$. По закону деМоргана, $\overline{A \cup B} \in F$, откуда $A \cup B \notin F$. 
 
-        \item Пусть имеется $F$. Утверждается, что существует ультрафильтр $F^*$, который сожержит $F$ ($F^* \supseteq F$). Данное утверждение нетривиально и в каком-то смысле схоже с аксиомой выбора. Применим лемму Цорна. \\ 
+        \item Пусть имеется $F$. Утверждается, что существует ультрафильтр $F^*$, который сожержит $F$ ($F^* \supseteq F$). Данное утверждение нетривиально и в каком-то смысле схоже с аксиомой выбора. Применим лемму Цорна. 
         
         \begin{lemma}[Цорн]
             Пусть $(P; \leq)$~— частичный порядок, в котором всякая линейная цепь $A \supseteq P$ имеет верхнюю границу. Тогда в этом частичном порядке есть максимальный элемент. 
@@ -74,31 +74,31 @@
     Если $I$ бесконечное, то в $P(I)$ есть неглавные ультрафильтры. Для доказательства рассматриваем $F = \{A \subseteq I | A~— \text{ коконечно}\}$, и существующий по доказанному ранее $F^* \supseteq F$. 
 \end{task} 
 
-Пусть имеется некоторое проиндексированное семейство $\sigma$-структур $\{\mathfrak{A}_i\}_{i \in I}$.  
+Пусть имеется некоторое проиндексированное семейство $\sigma$-структур $\{\mathbb{A}_i\}_{i \in I}$.  
 
 \begin{definition}[Декартово произведение]
-    $\mathfrak{A} = \prod_{i \in I} \mathfrak{A}_i$~— определяем $\sigma$-структуру.  
+    $\mathbb{A} = \prod_{i \in I} \mathbb{A}_i$~— определяем $\sigma$-структуру.  
     
-    $A = \prod_{i \in I} A_i$~— множество функций $a$ на множестве $I$, такое что $a(i) \in A_i$ для любого $i \in I$. $a : I \to \bigcup_{i \in I} A_i$~— проектирование ($a \mapsto a(i)$). $c^{\mathfrak{A}}(i) = c^{\mathfrak{A}_i}$, таким образом получается интерпретация константного символа. $f^{\mathfrak{A}}(a_1, \ldots, a_n)(i) = f^{\mathfrak{A}_i}(a_1(i), \ldots, a_n(i))$. Предикат $P^{\mathfrak{A}}(-//-) \Lra P^{\mathfrak{A}_i}(a_1(i), \ldots, a_n(i)) = T$ $\forall i \in I$. 
+    $A = \prod_{i \in I} A_i$~— множество функций $a$ на множестве $I$, такое что $a(i) \in A_i$ для любого $i \in I$. $a : I \to \bigcup_{i \in I} A_i$~— проектирование ($a \mapsto a(i)$). $c^{\mathbb{A}}(i) = c^{\mathbb{A}_i}$, таким образом получается интерпретация константного символа. $f^{\mathbb{A}}(a_1, \ldots, a_n)(i) = f^{\mathbb{A}_i}(a_1(i), \ldots, a_n(i))$. Предикат $P^{\mathbb{A}}(-//-) \Longleftrightarrow P^{\mathbb{A}_i}(a_1(i), \ldots, a_n(i)) = T$ $\forall i \in I$. 
 
-    Если же имеется ещё и $F$~— фильтр на множестве $I$, определим \textit{фильтрованное произведение}, которое будем обозначать $\mathfrak{A}_F = \mathfrak{A} /_{\equiv_F}$. Эквивалентность определяется следующим образом. Пусть $a, b \in A$, тогда $a \equiv_F b \overset{\mathrm{def}}{\Lra} \{i \in I | a(i) = b(i)\} \in F$ ($a(i) = b(i)$ для $F$-большинства $i$). Нетрудно убедиться в том, что мы получили действительно отношение эквивалентности, и более того, отношение конгруэнтности на структуре $\mathfrak{A}$.  
+    Если же имеется ещё и $F$~— фильтр на множестве $I$, определим \textit{фильтрованное произведение}, которое будем обозначать $\mathbb{A}_F = \mathbb{A} /_{\equiv_F}$. Эквивалентность определяется следующим образом. Пусть $a, b \in A$, тогда $a \equiv_F b \overset{\mathrm{def}}{\Longleftrightarrow} \{i \in I | a(i) = b(i)\} \in F$ ($a(i) = b(i)$ для $F$-большинства $i$). Нетрудно убедиться в том, что мы получили действительно отношение эквивалентности, и более того, отношение конгруэнтности на структуре $\mathbb{A}$.  
 
     $A /_{\equiv_F} \{[a] | a \in A\}$ соответственно отображению $A \xrightarrow{p} A /_{\equiv_F}$ ($a \mapsto [a]$) и $[a]_F = \{b | b \equiv_F a\}$.  
     
-    $\mathfrak{A}_F = (A /_{\equiv_F}; I)$, где 
+    $\mathbb{A}_F = (A /_{\equiv_F}; I)$, где 
 
     \begin{itemize}
-        \item $c^{\mathfrak{A}_F} = [c^{\mathfrak{A}}]$; 
-        \item $f^{\mathfrak{A}_F}([a_1], \ldots, [a_n]) = [f^{\mathfrak{A}}(a_1, \ldots, a_n)]$; 
-        \item $P^{\mathfrak{A}_F}([a_1], \ldots, [a_n])~— T \Lra P^{\mathfrak{A}_i} (a_1(i), \ldots, a_n(i))$ для $F$-большинства $i$. 
+        \item $c^{\mathbb{A}_F} = [c^{\mathbb{A}}]$; 
+        \item $f^{\mathbb{A}_F}([a_1], \ldots, [a_n]) = [f^{\mathbb{A}}(a_1, \ldots, a_n)]$; 
+        \item $P^{\mathbb{A}_F}([a_1], \ldots, [a_n]) - T \Longleftrightarrow P^{\mathbb{A}_i} (a_1(i), \ldots, a_n(i))$ для $F$-большинства $i$. 
     \end{itemize} 
 
-    Если $F$~— ультрапроизведение, то $\mathfrak{A} /_{F}$ называется \textit{ультрапроизведением}.
+    Если $F$~— ультрапроизведение, то $\mathbb{A} /_{F}$ называется \textit{ультрапроизведением}.
 \end{definition} 
 
 \begin{theorem}[об ультрапроизведениях]
-    Пусть $F$~— ультрафильтр на множестве $I$, $\mathfrak{A}_i$~— семейство стркутур, $\varphi(x_1, \ldots, x_k)$~— $\sigma$-формула и пусть $a_1, \ldots, a_k \in \prod_i A_i$. Тогда $\mathfrak{A}_F \models \varphi([a_1], \ldots, [a_k])$ тогда и только тогда, когда $\mathfrak{A}_i \models \varphi(a_1(i), \ldots, a_n(i))$ для $F$-большинства индексов.
-\end{theorem} \ 
+    Пусть $F$~— ультрафильтр на множестве $I$, $\mathbb{A}_i$~— семейство стркутур, $\varphi(x_1, \ldots, x_k)$~— $\sigma$-формула и пусть $a_1, \ldots, a_k \in \prod_i A_i$. Тогда $\mathbb{A}_F \models \varphi([a_1], \ldots, [a_k])$ тогда и только тогда, когда $\mathbb{A}_i \models \varphi(a_1(i), \ldots, a_n(i))$ для $F$-большинства индексов.
+\end{theorem} 
 
 \begin{theorem}
     Бесконечное множество $\Gamma$ имеет модель, если каждое его конечное поднмонжество $\Gamma$ имеет модель.
@@ -106,4 +106,3 @@
 
 
 \end{document}
-
