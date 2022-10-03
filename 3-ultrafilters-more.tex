@@ -1,0 +1,85 @@
+\subsection{3 лекция}
+
+\begin{stat}
+    $$\varphi([a_1], \ldots, [a_k]) \Longleftrightarrow \{i| \mathbb{A} \models \varphi(a_1(i), \ldots, a_k(i))\} \in F.$$ 
+\end{stat} 
+
+\begin{stat}[Следствие]
+    $$\mathbb{A}_F \models \varphi \Longleftrightarrow \{i | \mathbb{A}_i \models \varphi\} \in F.$$
+\end{stat} 
+
+\begin{proof}[Ультрапроизведения]
+    Доказательство приведём индукцией по построению формулы. Простейшие формулы в виде предиката и равенства двух термов рассматриваются очевидно, это - база. Обратим внимание на функциональный символ $f \in \sigma$. Как он интерпретируется? $$f^{\mathbb{A}_F}([a_1], \ldots, [a_k]):= [\lambda_i f^{\mathbb{A}_i}(a_1(i), \ldots, a_k(i))]$$ 
+
+    Из определения декартового у нас было $$f^{\mathbb{A}}([a_1], \ldots, [a_k]):= \lambda_i f^{\mathbb{A}_i}(a_1(i), \ldots, a_k(i)),$$ 
+
+    где $i \mathbb{A}psto f^{\mathbb{A}_i}(a_1(i), \ldots, a_k(i))$, и $\lambda x f(x) = f$. Причём согласно фильтру 
+
+    \begin{equation*}
+        \begin{aligned}
+            a_1 &\equiv_F a_1' \\ 
+            &\vdots \\ 
+            a_k &\equiv_F a_k' \\ 
+            f^{\mathbb{A}}(a_1, \ldots, a_k) &\equiv_F f^{\mathbb{A}}(a_1', \ldots, a_k').
+        \end{aligned}
+    \end{equation*} 
+
+    $J_i \{i| a_1(i) = a_1'(i)\} \in F$, $f^{\mathbb{A}_i}(a_1(i), \ldots, a_k(i)) = J_1 \cap \ldots, \cap J_k \in F = f^{\mathbb{A}}(a_1', \ldots, a_k')$. Константы $c^{\mathbb{A}}$ интерпретируются как $\lambda_i c^{\mathbb{A}_i}$, переменные означиваются каким-то образом $x_j \mathbb{A}psto a_j(i)$, $t^{\mathbb{A}_i} = f^{\mathbb{A}_i}(t_1^{\mathbb{A}_i}, \ldots, t_k^{\mathbb{A}_i})$, значит, $t^{\mathbb{A}}(a_1, \ldots, a_k) = f^{\mathbb{A}}(t_1^{\mathbb{A}}(\overline{a}), \ldots, t_k^{\mathbb{A}}(\overline{a}))$. Соответственно, из определения это верно для простейших формул. Перейдём теперь к сложным формулам. \ 
+    
+    Более сложные формулы строятся из простых при помощи логических связок и кванторов. Достаточно рассматривать только конъюнкцию, отрицанию и существование (остальные выражаются через них). Пусть мы хотим проверить $$\mathbb{A}_F \models (\varphi \wedge \psi)(a_1, \ldots, a_k).$$ Это означает, что $\mathbb{A}_F \models \varphi([\overline{a}])$ и $\mathbb{A} \models \psi ([\overline{a}])$. $J = \{i | \mathbb{A}_i \models \varphi(\overline{a(i)})\} \in F$. Проверяется $i \in J \cap K$, $$\{\mathbb{A}_i \models (\varphi \wedge \psi)(a_1(i), \ldots, a_k(i))\} \in F.$$ Отрицание также легко проверяется для ультрафильтров, так как есть свойство дополнения. 
+
+    \begin{equation*}
+        \begin{aligned}
+            \mathbb{A}_F &\models \neg \varphi([\overline{a}]) \\ 
+            \neg (\mathbb{A}_F &\models \varphi([\overline{a}])) \\ 
+            & \ldots
+        \end{aligned}
+    \end{equation*} 
+
+    Существование проверяется следующим образом: 
+
+    \begin{equation*}
+        \begin{aligned}
+            \varphi &= \varphi(x_1, \ldots, x_k), \\ 
+            \varphi &= \exists x \theta (x, x_1, \ldots, x_k). \\ 
+            \mathbb{A}_F &\models \varphi([a_1], \ldots, [a_k]), \\ 
+            \mathbb{A}_F &\models \theta([b], [a_1], \ldots, [a_k]) \text{ для некоторого } b \in \mathbb{A}.  
+        \end{aligned}
+    \end{equation*} 
+
+    И нам нужно доказать в две стороны. Для этого рассматриваем  
+
+    \begin{equation*}
+        \begin{aligned}
+            J &= \{i | \mathbb{A}_i \models \theta(b(i), a_1(i), \ldots, a_k(i))\}, \\ 
+            K &= \{i | \mathbb{A}_i \models \varphi(a_1(i), \ldots, a_k(i))\}.
+        \end{aligned}
+    \end{equation*} 
+
+    Это -- элементы $F$, которые в разных случаях лежат друг в друге. Не уловил суть, надо будет дописать и переписать.
+\end{proof} 
+
+\begin{theorem}
+    Бесконечное множество $\Gamma$ имеет модель, если каждое его конечное поднмонжество $\Gamma$ имеет модель.
+\end{theorem}  
+
+\begin{proof}
+    Пусть $I = \{i | i \text{ -- конечное подмножество } \Gamma\}$. Для каждого $i \in I \mapsto \mathbb{A}_i$ существует своя структура. Тогда можно построить следующее семейство структур $\{\mathbb{A}_i\}_{i \in I}$, где $\mathbb{A}_i \models i$. Рассмтрим декартово произведение $\mathbb{A} = \prod_i \mathbb{A}_i$ и $G_i = \{j \in I | i \subseteq j\}$. Если $k \in I$, то $G_i \cap G_k = G_{i \cup k}$ ($I$ - бесконечно). Утверждается, что $F = \{A \subseteq I | \exists_i (G_i \subseteq A)\}$ - ультрафильтр. Свойства проверяются очевидно. 
+\end{proof}
+
+\begin{definition} \ 
+    
+    \begin{itemize}
+        \item $\mathbb{A} \subseteq \mathbb{B}$ iff значения простых формул в $\mathbb{A}$ и $\mathbb{B}$ совпадают; 
+        \item $\mathbb{A} \preceq \mathbb{B}$, если $\mathbb{A} \subseteq \mathbb{B}$ и значения любых формул в $A$ и $B$ совпадают (элементарная подструктура); 
+        \item $\mathbb{A} \equiv \mathbb{B}$, если они удовлетворяют одни и те же предложения (элементарная эквивалентность).
+    \end{itemize}
+\end{definition}
+
+\begin{stat}
+    $\mathbb{A} \preceq \mathbb{B}$, тогда $\mathbb{A} \subseteq \mathbb{B}$ и $\mathbb{A} \equiv \mathbb{B}$. 
+\end{stat}
+
+\begin{theorem}[Лёвингейма-Сколема, понижение]
+    Пусть есть $\mathbb{A}$, $X \subseteq \mathbb{A}$, $|X| \leq |\text{For}_\sigma|$. Тогда существует $\mathbb{B} \preceq \mathbb{A}$: $X \subseteq \mathbb{B}$ и $|\mathbb{B}| \leq |\text{For}_\sigma|$. 
+\end{theorem}
