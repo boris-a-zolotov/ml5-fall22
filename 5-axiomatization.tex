@@ -1,0 +1,92 @@
+\subsection{Лекция 5} 
+
+\begin{stat}[следствие Лёвингейма-Сколема] \ 
+     
+    \begin{enumerate}
+        \item Если $\sigma$-теория имеет бесконечную модель, то она имеет модель любой мощности хотя бы $|\text{For}_\sigma|$; 
+        \item Если $\sigma$-теория имеет конечные модель сколь угодно большой мощности, то она имеет модель любой мощности хотя бы $|\text{For}_\sigma|$. 
+    \end{enumerate}
+\end{stat}
+
+\begin{proof}
+    *рисуются картинки*
+\end{proof} 
+
+\begin{theorem}[без доказательства]
+    Логика предикатов -- единственная логика, для которой верны и теорема о компактности и теорема о понижении мощности.
+\end{theorem}
+
+\subsection{Аксиоматизированные классы}
+
+\begin{definition} \  
+
+    \begin{enumerate}
+        \item $\text{Sent}_\sigma \supseteq T$, $\text{Str}_\sigma \supseteq K$. Сопоставим $T \mapsto \text{Mod}(T)$, $K \mapsto \text{Th}(K) = \{\varphi | \forall \mathbb{A}\in K (\mathbb{A}\models \varphi)\}$. Класс $K$ называется \textit{аксиоматизируемым}, если $K = \text{Mod}(T)$ для всех $T$; 
+        \item $K$ -- \textit{конечно аксиоматизируемый}, если $K = \text{Mod}(T)$ для некоторого конечного $T = \{\varphi_1, \ldots, \varphi_n\}$ ($\varphi_1 \wedge \ldots \wedge \varphi_n$)
+    \end{enumerate}
+\end{definition}
+
+\begin{prop} \ 
+
+    \begin{enumerate}
+        \item $T \subseteq T'$, тогда $\text{Mod}(T) \supseteq \text{Mod}(T')$; 
+        \item $K \subseteq K'$, тогда $\text{Th}(K) \supseteq Th(K')$; 
+        \item $K \subseteq \text{Mod}(\text{Th}(K))$ : $T \subseteq \text{Th}{\text{Mod(T)}}$; 
+        \item Любое пересечение аксиоматизированных классов является аксиоматизированным классом. Объединение двух аксиоматизированных классов является аксиоматизированным классом; 
+        \item Класс $K$ является аксиоматизированным тогда и только тогда, когда $K = \text{Mod}(\text{Th}(K))$; 
+        \item $K$ конечно аксиоматизируемый тогда и только тогда, когда $K$ и $\text{Str}_\sigma \backslash K$ аксиоматизируемы; 
+        \item $K$ -- аксиоматизируемый тогда и только тогда, когда $K$ замкнут относительно $\equiv$ и ультрапроизведений.
+    \end{enumerate}
+\end{prop}
+
+\begin{proof}
+    Докажем (7) в левую сторону (в правую -- д/з). Пусть $\{\mathbb{A}\}_{i \in I} \in K$, тогда $\MA_F \in K$. Проверим, что $K$ совпалает с множеством $\text{Mod}(\text{Th}(K))$ (5), причём из третьего свойства включение $K$ в множество моделей очевидно, а с другим придётся повозиться. \ 
+    
+    Пусть$\mathbb{A}\models \text{Th}(K)$, и нам нужно показать, что $\mathbb{A}\in K$. $\mathbb{A}\equiv \mathbb{B}_{F^*}$, где $F^*$ -- некий ультрафильтр на подходящем множестве $I$; $B_i \in K$. Откуда взять множество $I$? Недолго думая, возьмём $I:= \text{Th}(A)$. Утверждается, что для любого $\varphi \in \text{Th}(\mathbb{A}) \exists \mathbb{B} \in K (\mathbb{B} \models \varphi)$. \ 
+
+    Возьмём любое $\varphi$ и предположим, что это не верно. То есть, для любой структуры $\mathbb{B} \in K$, $\mathbb{B} \models \neg \varphi$, тогда $\neg \varphi \in \text{Th}(K)$ и в $\mathbb{A}$ истино $\neg \varphi$ -- противоречие. Таким образом $\varphi \mapsto \mathbb{B}_\varphi \models \varphi$, и мы получили семейство структур. Надо построить ультрафильтр. \ 
+    
+    Для каждого $\varphi \in I$ рассмотрим $U_{\varphi} := \{\psi \in \text{Th}(\mathbb{A}) | \models \psi \rightarrow \varphi\}$, $\varphi \in U_\varphi$. $U_{\varphi} \cap U_{\varphi'} = U_{\varphi \wedge \varphi'} \neq \emptyset$ и принадлежит $\text{Th}(\mathbb{A})$. Пусть $F = \{J \subseteq \text{Th}(\mathbb{A}) | \exists \varphi (J \supseteq U_\varphi)\}$. Это --  конечно, ультрафильтр. $F^*$ -- любой ультрафильтр, расширяющий $F$, должен нам подойти. \ 
+
+    $\mathbb{A}\models \varphi$, $\varphi \in I = \text{Th}(\mathbb{A})$, $\mathbb{B}_\varphi \models \varphi$. 
+
+    \[ 
+        U_{\varphi} \subseteq \{\psi \in \text{Th}(\mathbb{A}) | \mathbb{B}_{\psi} \models \varphi\} \in F \subseteq F^*
+    \]
+    
+    $\psi \in U_{\varphi}$, $\psi \in \text{Th}(\mathbb{A})$. $\models \psi \rightarrow \varphi$, $\mathbb{B}_\psi \models \psi$, $\mathbb{B}_F \models \varphi$. 
+\end{proof}
+
+\begin{definition}
+    $\Sigma_n$ ($n \in \mathbb{N}$) -- множество $\sigma$-формул (равносильных): 
+
+    \begin{itemize}
+        \item $\Sigma_0$ -- бескванторные формулы; 
+        \item $\Sigma_1$ -- формулы вида $\exists \overline{x} \psi(\overline{x}, \overline{y})$, а $\psi$ -- бескванторная; 
+        \item $\Sigma_2$ -- формулы вида $\exists \overline{x_1} \forall \overline{x_2} \psi(\overline{x_1}, \overline{x_2}, \overline{y})$;
+        \item и так далее по \textit{иерархии $\sigma$-формул по числу перемен кванторов в предварённой нормальной форме} получаем $\{\Sigma_n\}_{n \in \mathbb{N}}$.
+    \end{itemize}
+
+    $\Pi_n$ --  определяется аналогично с заменой $\exists$ на $\forall$ и наоборот.
+\end{definition}
+
+\begin{prop} \ 
+
+    \begin{itemize}
+        \item $\Sigma_n \cup \Pi_n \subseteq \Sigma_{n+1} \cap \Pi_{n+1}$; 
+        \item $\varphi \in \Pi_n$ тогда и только тогда, когда $\neg \varphi \in \Sigma_n$; 
+        \item $\bigcup \Sigma_n = \bigcup \Pi_n = \text{For}_\sigma$.
+    \end{itemize}
+\end{prop}
+
+%\begin{stat}
+%    $\Pi_1$ -- аксиоматизируемый.
+%\end{stat}
+
+\begin{theorem}
+    Аксиоматизируемый класс является $\Pi_1$ аксиоматизируемым тогда и только тогда, когда он замкнут относительно подструктур (если какая-то структура лежит в классе, то любая еэ подструктура тоже лежит в нём).
+\end{theorem}
+
+\begin{proof}
+    Докажем слева направо. Пусть у нас есть класс $K = \text{Mod}(T)$, где $T$ -- множество $\Pi_1$ предложений. Нам нужно доказать, что он замкнут относительно подструктур. Если $\mathbb{A}\subseteq \mathbb{B} \models T$, то утверждается, что $\mathbb{A}\models T$. По-другому это можно расписать как $A \subseteq \mathbb{B} \models \varphi = \forall \overline{x} \psi(\overline{x})$. И это верно, потому что очевидно. Начнём с конца: $\mathbb{A}\models \psi(\overline{a})$ при $\overline{a} \in A$, тогда $\mathbb{B} \models \psi(\overline{a})$. 
+\end{proof}
