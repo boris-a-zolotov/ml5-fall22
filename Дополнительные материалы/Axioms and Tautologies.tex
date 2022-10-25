@@ -14,8 +14,7 @@
 \begin{enumerate}
 \item $(\varphi\rightarrow\psi)\equiv(\neg\varphi\lor\psi)$; 
 
-\item $\neg\neg\varphi\equiv
-\varphi$;
+\item $\neg\neg\varphi\equiv\varphi$;
 
 \item $\neg (\varphi \land \psi)\equiv (\neg\varphi\lor \neg\psi)$;
 
@@ -23,58 +22,46 @@
 
 \item $(\varphi\land\psi) \equiv(\psi \land \varphi)$; 
 
-\item $(\varphi
-\lor \psi)
-\equiv(\psi \lor \varphi)$;
+\item $(\varphi \lor \psi)\equiv(\psi \lor \varphi)$;
 
 \item $\varphi\land(\psi\land\theta)\equiv(\varphi\land\psi)\land\theta$;
 
 \item $\varphi\lor (\psi\lor \theta) \equiv(\varphi \lor \psi) \lor \theta$;
 
-\item $\varphi\land(\psi\lor\theta)\equiv(\varphi\land\psi)\lor(\varphi\land
-\theta)$; 
+\item $\varphi\land(\psi\lor\theta)\equiv(\varphi\land\psi)\lor(\varphi\land\theta)$; 
 
-\item $\varphi\lor(\psi\land\theta)\equiv(\varphi\lor\psi)\land(\varphi
-\lor\theta)$.
-\vspace{10mm}
+\item $\varphi\lor(\psi\land\theta)\equiv(\varphi\lor\psi)\land(\varphi\lor\theta)$.\medskip
 
 \item $\neg(\forall x \varphi)\equiv \exists x (\neg\varphi)$; 
 
-\item $\neg (\exists x \varphi)\equiv \forall x
-(\neg\varphi)$;
+\item $\neg (\exists x \varphi)\equiv \forall x (\neg\varphi)$;
 
-\item $\psi \land \forall x \varphi\equiv \forall x (\psi\land
-\varphi)$; 
+\item $\psi \land \forall x \varphi\equiv \forall x (\psi\land\varphi)$; 
 
-\item $\psi\lor \exists x \varphi \equiv
-\exists x (\psi \lor \varphi)$;
+\item $\psi\lor \exists x \varphi \equiv \exists x (\psi \lor \varphi)$;
 
-\item $\psi \lor \forall x \varphi\equiv \forall x (\psi\lor
-\varphi)$; 
+\item $\psi \lor \forall x \varphi\equiv \forall x (\psi\lor \varphi)$; 
 
-\item $\psi \land\exists x \varphi \equiv\exists x (\psi \land \varphi)$;
-
-($x$  не входит свободно в $\psi$)
+\item $\psi \land\exists x \varphi \equiv\exists x (\psi \land \varphi)$
+($x$ не входит свободно в $\psi$);
 
 \item $\forall x \varphi(x) \equiv\forall y \varphi(y)$; 
 
 \item $\exists
-x\varphi(x) \equiv \exists y\varphi(y)$.
-
-($y$ не входит в $\varphi$)
+x\varphi(x) \equiv \exists y\varphi(y)$
+($y$ не входит в $\varphi$).
 \end{enumerate}
 
-\pagebreak
 
-ОСНОВНЫЕ ТАВТОЛОГИИ
-\medskip
+\newpage
+\section{Основные тавтологии}
 
 \begin{enumerate}
 \item $\varphi\rightarrow(\psi\rightarrow\varphi)$; 
 
-\item $(\varphi\rightarrow\psi) \rightarrow ((\varphi\rightarrow (\psi
+\item $(\varphi\rightarrow\psi) \rightarrow \bigl((\varphi\rightarrow (\psi
 \rightarrow \theta))\rightarrow
-(\varphi \rightarrow\theta))$;
+(\varphi \rightarrow\theta)\bigr)$;
 \medskip
 
 \item $\varphi \rightarrow (\psi\rightarrow (\varphi \land \psi))$;
@@ -92,103 +79,91 @@ x\varphi(x) \equiv \exists y\varphi(y)$.
 \item $\psi \rightarrow (\varphi \lor \psi)$;
 
 \item $(\varphi
-\rightarrow \theta) \rightarrow ((\psi \rightarrow \theta)
-\rightarrow ((\varphi \lor \psi) \rightarrow
-\theta))$;
+\rightarrow \theta) \rightarrow \Bigl((\psi \rightarrow \theta)
+\rightarrow \bigl((\varphi \lor \psi) \rightarrow
+\theta\bigr)\Bigr)$;
 \medskip
 
-\item $(\varphi \rightarrow \psi) \rightarrow ((\varphi \rightarrow
-\neg\psi) \rightarrow \neg\varphi)$; 
+\item $(\varphi \rightarrow \psi) \rightarrow \bigl((\varphi \rightarrow
+\neg\psi) \rightarrow \neg\varphi\bigr)$; 
 
 \item $\neg\neg\varphi\rightarrow \varphi$.
 \end{enumerate}
 \pagebreak
 
 
-ГИЛЬБЕРТОВСКОЕ  ИП$_\sigma$
+\section{Гильбертовское исчисление предикатов}
 
-АКСИОМЫ: 
+\subsection{Аксиомы}
 
-Тавтологии сигнатуры $\sigma$; 
-\medskip
+\begin{enumerate}
+	\item Тавтологии сигнатуры $\sigma$;
 
-Кванторные аксиомы 
+	\item Кванторные аксиомы:
+\[ \forall x \varphi(x)\rightarrow \varphi(t) \text{\ \ и\ \ } \varphi(t)\rightarrow \exists x \varphi(x). \]
+\end{enumerate}
 
-$\forall x \varphi(x)\rightarrow
-\varphi(t)$ и $\varphi(t)\rightarrow \exists x \varphi(x)$;
-\medskip
+\subsection{Аксиомы равенства}
 
-Аксиомы равенства 
+\begin{enumerate}
+\item $\forall x (x = x)$, 
 
-$\forall x (x = x)$, 
-
-$\forall x \forall y(x = y
+\item $\forall x \forall y(x = y
 \rightarrow y = x)$, 
 
-$\forall x \forall y\forall z (x = y \land y
+\item $\forall x \forall y\forall z (x = y \land y
 = z \rightarrow x = z)$, 
-\medskip
 
-$\forall x_1 \forall y_1\ldots \forall
+\item $\forall x_1 \forall y_1\ldots \forall
 x_n \forall y_n (x_1 = y_1 \land \ldots \land x_n = y_n
 \rightarrow f(x_1,\ldots,x_n) = f(y_1,\ldots, y_n))$, 
-\medskip
 
-$\forall x_1
+\item $\forall x_1
 \forall y_1\ldots\forall x_n \forall y_n (x_1 = y_1 \land \ldots
 \land x_n = y_n \land P(x_1,\ldots, x_n) \rightarrow
 P(y_1,\ldots, y_n))$.
-\medskip
+\end{enumerate}
 
-ПРАВИЛА ВЫВОДА:
-\medskip
+\subsection{Правила вывода}
 
-$\frac{\varphi,\varphi\rightarrow\psi}{\psi}$,\;\;\;
-$\frac{\psi\rightarrow \varphi(y)}{\psi\rightarrow\forall
-x\varphi(x)}$, \;\;\;
-$\frac{\varphi(y)\rightarrow\psi}{\exists
-x\varphi(x)\rightarrow\psi}$, 
-\medskip
+\[ \dfrac{\varphi,\ \ \varphi\rightarrow\psi}{\psi},\quad
+\dfrac{\psi\rightarrow \varphi(y)}{\psi\rightarrow\forall
+x\varphi(x)},\quad
+\dfrac{\varphi(y)\rightarrow\psi}{\exists
+x\varphi(x)\rightarrow\psi},\]
+где $y$~—переменная, не входящая свободно в нижнюю формулу.
 
-где $y$ --- переменная, не входящая свободно в нижнюю формулу.
-\medskip
-
-Вариант ИП$^*_\sigma$ получается, если вместо всех тавтологий берутся только ОСНОВНЫЕ тавтологии.
+\noindent Вариант $\text{ИП}^*_\sigma$ получается, если вместо всех тавтологий берутся только {\it основные} тавтологии.
 
 \pagebreak
 
+\section{Генценовское исчисление предикатов (без равенства)}
 
-ГЕНЦЕНОВСКОЕ  ИП$_\sigma$ (без равенства)
+\subsection{Аксиомы}
 
-АКСИОМЫ: 
-\medskip
+\[\Gamma,\varphi\vdash \Delta,\varphi\]
 
-$\Gamma,\varphi\vdash \Delta,\varphi$
+\subsection{Правила вывода}
 
-\medskip
-
-
-ПРАВИЛА ВЫВОДА:
-\medskip
 \begin{align*}
-&\frac{\Gamma,\varphi,\psi\vdash\Delta}{\Gamma,\varphi\land\psi\vdash\Delta},&
+&\frac{\Gamma,\varphi,\psi\vdash\Delta}{\Gamma,\varphi\land\psi\vdash\Delta},&&
 \frac{\Gamma\vdash\Delta,\varphi;\;\Gamma\vdash\Delta,\psi}{\Gamma\vdash\Delta,\varphi\land\psi},
-\\
-&\frac{\Gamma,\varphi\vdash\Delta;\;\Gamma,\psi\vdash\Delta}{\Gamma,\varphi\lor\psi\vdash\Delta},&
+\\[0.3cm]
+&\frac{\Gamma,\varphi\vdash\Delta;\;\Gamma,\psi\vdash\Delta}{\Gamma,\varphi\lor\psi\vdash\Delta},&&
 \frac{\Gamma\vdash\Delta,\varphi,\psi}{\Gamma\vdash\Delta,\varphi\lor\psi},
-\\
-&\frac{\Gamma\vdash\Delta,\varphi;\;\Gamma,\psi\vdash\Delta}{\Gamma,\varphi\rightarrow\psi\vdash\Delta},&
+\\[0.3cm]
+&\frac{\Gamma\vdash\Delta,\varphi;\;\Gamma,\psi\vdash\Delta}{\Gamma,\varphi\rightarrow\psi\vdash\Delta},&&
 \frac{\Gamma,\varphi\vdash\Delta,\psi}{\Gamma\vdash\Delta,\varphi\rightarrow\psi},
-\\
-&\frac{\Gamma\vdash\Delta,\varphi}{\Gamma,\neg\varphi\vdash\Delta},&
+\\[0.3cm]
+&\frac{\Gamma\vdash\Delta,\varphi}{\Gamma,\neg\varphi\vdash\Delta},&&
 \frac{\Gamma,\varphi\vdash\Delta}{\Gamma\vdash\Delta,\neg\varphi},
-\\
-&\frac{\Gamma,\varphi(t)\vdash\Delta}{\Gamma,\forall x\varphi(x)\vdash\Delta}, &
+\\[0.3cm]
+&\frac{\Gamma,\varphi(t)\vdash\Delta}{\Gamma,\forall x\varphi(x)\vdash\Delta}, &&
 \frac{\Gamma\vdash\Delta,\varphi(y)}{\Gamma\vdash\Delta,\forall x\varphi(x)},
-\\
-&\frac{\Gamma,\varphi(y)\vdash\Delta}{\Gamma,\exists x\varphi(x)\vdash\Delta}, &
+\\[0.3cm]
+&\frac{\Gamma,\varphi(y)\vdash\Delta}{\Gamma,\exists x\varphi(x)\vdash\Delta}, &&
 \frac{\Gamma\vdash\Delta,\varphi(t)}{\Gamma\vdash\Delta,\exists x\varphi(x)},
-\\\\
+\\[0.6cm]
 &\frac{\Gamma\vdash\Delta,\varphi;\;\Gamma,\varphi\vdash\Delta}{\Gamma\vdash\Delta}
 \end{align*}
 
