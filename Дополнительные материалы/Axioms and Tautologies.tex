@@ -7,8 +7,9 @@
 \date{\today}
 \author{В.~Л.~Селиванов}
 
-\begin{document} \maketitle
+\begin{document} \maketitle \tableofcontents
 
+\newpage
 \section{Основные равносильности}
 
 \begin{enumerate}
@@ -89,7 +90,6 @@ x\varphi(x) \equiv \exists y\varphi(y)$
 
 \item $\neg\neg\varphi\rightarrow \varphi$.
 \end{enumerate}
-\pagebreak
 
 
 \section{Гильбертовское исчисление предикатов}
@@ -131,7 +131,7 @@ P(y_1,\ldots, y_n))$.
 x\varphi(x)},\quad
 \dfrac{\varphi(y)\rightarrow\psi}{\exists
 x\varphi(x)\rightarrow\psi},\]
-где $y$~—переменная, не входящая свободно в нижнюю формулу.
+где $y$~— переменная, не входящая свободно в нижнюю формулу.
 
 \noindent Вариант $\text{ИП}^*_\sigma$ получается, если вместо всех тавтологий берутся только {\it основные} тавтологии.
 
@@ -167,6 +167,7 @@ x\varphi(x)\rightarrow\psi},\]
 &\frac{\Gamma\vdash\Delta,\varphi;\;\Gamma,\varphi\vdash\Delta}{\Gamma\vdash\Delta}
 \end{align*}
 
+\newpage
 \section{Минимальная арифметика и арифметика Пеано}
 
 \begin{enumerate}
@@ -191,46 +192,34 @@ x\varphi(x)\rightarrow\psi},\]
 	\item  $\forall x\forall y (x < y + 1 \leftrightarrow (x < y \vee x = y))$.
 \end{enumerate}
 
-Арифметика Пеано ПА получается из МА добавлением схемы аксиом индукции:
-\medskip
-
-$(\varphi(0) \wedge \forall
+\noindent Арифметика Пеано ПА получается из МА добавлением схемы аксиом индукции:
+\[(\varphi(0) \wedge \forall
 x(\varphi(x) \rightarrow \varphi(x + 1))) \rightarrow \forall x
-\varphi(x)$,
-\medskip
-
- где $\varphi(x)$ --- любая формула сигнатуры MA.
+\varphi(x),\]
+где $\varphi(x)$ --- любая формула сигнатуры MA.
  
-
-
-
-АКСИОМЫ ZFC
-\medskip
+\section{Аксиомы теории множеств}
 
 \begin{enumerate}
 \item $\exists x(x=x)$.
 
-\item $\forall u(u\in X\leftrightarrow u\in Y)\to X=Y$.
+\item $\forall u(u\in X\leftrightarrow u\in Y)\to X=Y$ (аксиома объёмности).
 
-\item $\forall u\forall v\exists x\forall z(z\in x\leftrightarrow z=u\lor z=v)$.
+\item $\forall u\forall v\exists X\forall z(z\in X\leftrightarrow z=u\lor z=v)$ (существование мн-ва из двух элементов).
 
-\item $\forall X\exists Y\forall u(u\in Y\leftrightarrow u\in X\land\varphi(u))$.
+\item $\forall X\exists Y\forall u(u\in Y\leftrightarrow u\in X\land\varphi(u))$ (аксиома выделения).
 
-\item $\forall X\exists Y\forall u\forall z(u\in z\land z\in X\to u\in Y)$.
+\item $\forall X\exists Y\forall u\forall z(u\in z\land z\in X\to u\in Y)$ (существование объединения семейства мн-в).
 
-\item $\forall X\exists Y\forall u(u\in Y\leftrightarrow u\subseteq X)$.
-\medskip
+\item $\forall X\exists Y\forall u(u\in Y\leftrightarrow u\subseteq X)$ (существование множества подмножеств).
 
 \item $\forall x\forall y\forall y'(\varphi(x,y)\land\varphi(x,y')\to y=y')$
 
-$\to\forall X\exists Y\forall x\forall y(x\in X\land\varphi(x,y)\to y\in Y)$.
-\medskip
+$\to\forall X\exists Y\forall x\forall y(x\in X\land\varphi(x,y)\to y\in Y)$ (существование образа функции).
 
-\item $\exists Y(\emptyset\in Y\land\forall y(y\in Y\to y\cup\{y\}\in Y))$.
-\medskip
+\item $\exists Y(\emptyset\in Y\land\forall y(y\in Y\to y\cup\{y\}\in Y))$ (существование бесконечного мн-ва).
 
-\item $\forall X(X\not=\emptyset\to\exists x(x\in X\land\forall u(u\in x\to u\not\in X)))$.
-\medskip
+\item $\forall X(X\not=\emptyset\to\exists x(x\in X\land\forall u(u\in x\to u\not\in X)))$ (аксиома регулярности).
 
 \item $\forall X\exists f((f:(P(X)\setminus\{\emptyset\})\to X)\land\forall Y(Y\subseteq X\land Y\not=\emptyset\to f(Y)\in Y))$.
 \end{enumerate}
