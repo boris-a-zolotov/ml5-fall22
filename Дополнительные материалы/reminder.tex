@@ -192,6 +192,40 @@ $\Gamma,\varphi\vdash \Delta,\varphi$
 &\frac{\Gamma\vdash\Delta,\varphi;\;\Gamma,\varphi\vdash\Delta}{\Gamma\vdash\Delta}
 \end{align*}
 
+\section{Минимальная арифметика и арифметика Пеано}
+
+\begin{enumerate}
+	\item $0 + 1 = 1$;
+
+	\item $\forall x \neg(x + 1 = 0)$;
+
+	\item $\forall x \forall y (x + 1 = y +1 \rightarrow x = y)$; 
+
+	\item $\forall x (x+0 = x)$;
+
+	\item $\forall x \forall y (x + (y + 1)= (x + y) + 1)$; 
+
+	\item $\forall x (x\cdot 0 = 0)$;
+
+	\item $\forall x \forall y (x\cdot (y + 1)= (x \cdot y) + x)$;  
+
+	\item $\forall x \neg (x <0)$;
+
+	\item $\forall x \forall y (x < y \vee x = y \vee y < x)$;  
+
+	\item  $\forall x\forall y (x < y + 1 \leftrightarrow (x < y \vee x = y))$.
+\end{enumerate}
+
+Арифметика Пеано ПА получается из МА добавлением схемы аксиом индукции:
+\medskip
+
+$(\varphi(0) \wedge \forall
+x(\varphi(x) \rightarrow \varphi(x + 1))) \rightarrow \forall x
+\varphi(x)$,
+\medskip
+
+ где $\varphi(x)$ --- любая формула сигнатуры MA.
+ 
 
 
 
