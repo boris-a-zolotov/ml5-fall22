@@ -1,0 +1,227 @@
+\documentclass[a4paper,11pt]{article}
+\usepackage{../ml5}
+
+\setlist{itemsep=0.4mm,leftmargin=*}
+
+\title{Системы аксиом, тавталогии, правила вывода}
+\date{\today}
+\author{В.~Л.~Селиванов}
+
+\begin{document} \maketitle
+
+\section{Основные равносильности}
+
+1. $(\varphi\rightarrow\psi)\equiv(\neg\varphi\lor\psi)$; 
+
+2. $\neg\neg\varphi\equiv
+\varphi$;
+
+3. $\neg (\varphi \land \psi)\equiv (\neg\varphi\lor \neg\psi)$;
+
+4. $\neg(\varphi \lor \psi) \equiv(\neg\varphi \land \neg\psi)$;
+
+5. $(\varphi\land\psi) \equiv(\psi \land \varphi)$; 
+
+6. $(\varphi
+\lor \psi)
+\equiv(\psi \lor \varphi)$;
+
+7. $\varphi\land(\psi\land\theta)\equiv(\varphi\land\psi)\land\theta$;
+
+8. $\varphi\lor (\psi\lor \theta) \equiv(\varphi \lor \psi) \lor \theta$;
+
+9. $\varphi\land(\psi\lor\theta)\equiv(\varphi\land\psi)\lor(\varphi\land
+\theta)$; 
+
+10. $\varphi\lor(\psi\land\theta)\equiv(\varphi\lor\psi)\land(\varphi
+\lor\theta)$.
+\vspace{10mm}
+
+11. $\neg(\forall x \varphi)\equiv \exists x (\neg\varphi)$; 
+
+12. $\neg (\exists x \varphi)\equiv \forall x
+(\neg\varphi)$;
+
+13. $\psi \land \forall x \varphi\equiv \forall x (\psi\land
+\varphi)$; 
+
+14. $\psi\lor \exists x \varphi \equiv
+\exists x (\psi \lor \varphi)$;
+
+15. $\psi \lor \forall x \varphi\equiv \forall x (\psi\lor
+\varphi)$; 
+
+16. $\psi \land\exists x \varphi \equiv\exists x (\psi \land \varphi)$;
+
+($x$  не входит свободно в $\psi$)
+
+17. $\forall x \varphi(x) \equiv\forall y \varphi(y)$; 
+
+18. $\exists
+x\varphi(x) \equiv \exists y\varphi(y)$.
+
+($y$ не входит в $\varphi$)
+
+\pagebreak
+
+ОСНОВНЫЕ ТАВТОЛОГИИ
+\medskip
+
+1. $\varphi\rightarrow(\psi\rightarrow\varphi)$; 
+
+2. $(\varphi\rightarrow\psi) \rightarrow ((\varphi\rightarrow (\psi
+\rightarrow \theta))\rightarrow
+(\varphi \rightarrow\theta))$;
+\medskip
+
+3. $\varphi \rightarrow (\psi\rightarrow (\varphi \land \psi))$;
+
+4. $(\varphi
+\land \psi)\rightarrow \varphi$;
+
+5. $(\varphi \land \psi) \rightarrow\psi$; 
+\medskip
+
+6. $\varphi
+\rightarrow
+(\varphi \lor \psi)$;
+
+7. $\psi \rightarrow (\varphi \lor \psi)$;
+
+8. $(\varphi
+\rightarrow \theta) \rightarrow ((\psi \rightarrow \theta)
+\rightarrow ((\varphi \lor \psi) \rightarrow
+\theta))$;
+\medskip
+
+9. $(\varphi \rightarrow \psi) \rightarrow ((\varphi \rightarrow
+\neg\psi) \rightarrow \neg\varphi)$; 
+
+10. $\neg\neg\varphi\rightarrow \varphi$.
+\pagebreak
+
+
+ГИЛЬБЕРТОВСКОЕ  ИП$_\sigma$
+
+АКСИОМЫ: 
+
+Тавтологии сигнатуры $\sigma$; 
+\medskip
+
+Кванторные аксиомы 
+
+$\forall x \varphi(x)\rightarrow
+\varphi(t)$ и $\varphi(t)\rightarrow \exists x \varphi(x)$;
+\medskip
+
+Аксиомы равенства 
+
+$\forall x (x = x)$, 
+
+$\forall x \forall y(x = y
+\rightarrow y = x)$, 
+
+$\forall x \forall y\forall z (x = y \land y
+= z \rightarrow x = z)$, 
+\medskip
+
+$\forall x_1 \forall y_1\ldots \forall
+x_n \forall y_n (x_1 = y_1 \land \ldots \land x_n = y_n
+\rightarrow f(x_1,\ldots,x_n) = f(y_1,\ldots, y_n))$, 
+\medskip
+
+$\forall x_1
+\forall y_1\ldots\forall x_n \forall y_n (x_1 = y_1 \land \ldots
+\land x_n = y_n \land P(x_1,\ldots, x_n) \rightarrow
+P(y_1,\ldots, y_n))$.
+\medskip
+
+ПРАВИЛА ВЫВОДА:
+\medskip
+
+$\frac{\varphi,\varphi\rightarrow\psi}{\psi}$,\;\;\;
+$\frac{\psi\rightarrow \varphi(y)}{\psi\rightarrow\forall
+x\varphi(x)}$, \;\;\;
+$\frac{\varphi(y)\rightarrow\psi}{\exists
+x\varphi(x)\rightarrow\psi}$, 
+\medskip
+
+где $y$ --- переменная, не входящая свободно в нижнюю формулу.
+\medskip
+
+Вариант ИП$^*_\sigma$ получается, если вместо всех тавтологий берутся только ОСНОВНЫЕ тавтологии.
+
+\pagebreak
+
+
+ГЕНЦЕНОВСКОЕ  ИП$_\sigma$ (без равенства)
+
+АКСИОМЫ: 
+\medskip
+
+$\Gamma,\varphi\vdash \Delta,\varphi$
+
+\medskip
+
+
+ПРАВИЛА ВЫВОДА:
+\medskip
+\begin{align*}
+&\frac{\Gamma,\varphi,\psi\vdash\Delta}{\Gamma,\varphi\land\psi\vdash\Delta},&
+\frac{\Gamma\vdash\Delta,\varphi;\;\Gamma\vdash\Delta,\psi}{\Gamma\vdash\Delta,\varphi\land\psi},
+\\
+&\frac{\Gamma,\varphi\vdash\Delta;\;\Gamma,\psi\vdash\Delta}{\Gamma,\varphi\lor\psi\vdash\Delta},&
+\frac{\Gamma\vdash\Delta,\varphi,\psi}{\Gamma\vdash\Delta,\varphi\lor\psi},
+\\
+&\frac{\Gamma\vdash\Delta,\varphi;\;\Gamma,\psi\vdash\Delta}{\Gamma,\varphi\rightarrow\psi\vdash\Delta},&
+\frac{\Gamma,\varphi\vdash\Delta,\psi}{\Gamma\vdash\Delta,\varphi\rightarrow\psi},
+\\
+&\frac{\Gamma\vdash\Delta,\varphi}{\Gamma,\neg\varphi\vdash\Delta},&
+\frac{\Gamma,\varphi\vdash\Delta}{\Gamma\vdash\Delta,\neg\varphi},
+\\
+&\frac{\Gamma,\varphi(t)\vdash\Delta}{\Gamma,\forall x\varphi(x)\vdash\Delta}, &
+\frac{\Gamma\vdash\Delta,\varphi(y)}{\Gamma\vdash\Delta,\forall x\varphi(x)},
+\\
+&\frac{\Gamma,\varphi(y)\vdash\Delta}{\Gamma,\exists x\varphi(x)\vdash\Delta}, &
+\frac{\Gamma\vdash\Delta,\varphi(t)}{\Gamma\vdash\Delta,\exists x\varphi(x)},
+\\\\
+&\frac{\Gamma\vdash\Delta,\varphi;\;\Gamma,\varphi\vdash\Delta}{\Gamma\vdash\Delta}
+\end{align*}
+
+
+
+
+АКСИОМЫ ZFC
+\medskip
+
+0. $\exists x(x=x)$.
+
+1. $\forall u(u\in X\leftrightarrow u\in Y)\to X=Y$.
+
+2. $\forall u\forall v\exists x\forall z(z\in x\leftrightarrow z=u\lor z=v)$.
+
+3. $\forall X\exists Y\forall u(u\in Y\leftrightarrow u\in X\land\varphi(u))$.
+
+4. $\forall X\exists Y\forall u\forall z(u\in z\land z\in X\to u\in Y)$.
+
+5. $\forall X\exists Y\forall u(u\in Y\leftrightarrow u\subseteq X)$.
+\medskip
+
+6. $\forall x\forall y\forall y'(\varphi(x,y)\land\varphi(x,y')\to y=y')$
+
+$\to\forall X\exists Y\forall x\forall y(x\in X\land\varphi(x,y)\to y\in Y)$.
+\medskip
+
+7. $\exists Y(\emptyset\in Y\land\forall y(y\in Y\to y\cup\{y\}\in Y))$.
+\medskip
+
+8. $\forall X(X\not=\emptyset\to\exists x(x\in X\land\forall u(u\in x\to u\not\in X)))$.
+\medskip
+
+9. $\forall X\exists f((f:(P(X)\setminus\{\emptyset\})\to X)\land\forall Y(Y\subseteq X\land Y\not=\emptyset\to f(Y)\in Y))$.
+
+
+
+
+
+\end{document}
