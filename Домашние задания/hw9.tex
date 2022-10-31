@@ -1,0 +1,63 @@
+\documentclass[a4paper,11pt]{article}
+\usepackage{../ml5}
+
+\begin{document} \newgeometry{top=16mm,bottom=16mm}
+
+   \newcommand{\enumsep}{\vspace{-2.8mm}
+   		\begin{enumerate}[itemsep=0.4mm,leftmargin=2.5mm]}
+
+\begin{center}
+	{\Large Домашнее задание 9. Свойства выводимости.}
+
+	{\it (2 ноября\ \(\to\)\ 9 ноября)}
+\end{center}
+
+\begin{enumerate}
+	\item Используя теорему дедукции, докажите следующие свойства отношения выводимости ($S$ и $T$~— любые множества формул; $\varphi$, $\psi$
+и $\theta$, если не оговорено противное,~— произвольные формулы):\enumsep 
+	    \item[(а)] Если $\varphi \in T$, то $T\vdash\varphi$;
+	    \item[(б)] Если $T \vdash\varphi$, то $T_0 \vdash \varphi$ для подходящего конечного множества $T_0 \subseteq T$. 
+	    \item[(в)] Если $S \vdash \varphi$ и все формулы множества $S$ выводимы из $T$, то $T\vdash\varphi$. 
+	    \item[(г)] Если $T\cup\{\varphi\} \vdash \theta$ и $T\cup\{\psi\} \vdash \theta$, то $T\cup\{\varphi\lor\psi\}\vdash \theta$ ($\varphi$ и $\psi$~— предложения). 
+	    \item[(д)] Если $T\cup\{\varphi\}\vdash \psi$ и $T\cup\{\varphi\}\vdash\neg\psi$, то $T\vdash\neg\varphi$ ($\varphi$~— предложение). 
+	    \item[(е)] $T\vdash\varphi \land \psi$ тогда и только тогда, когда $T\vdash\varphi$ и $T\vdash\psi$.
+	\end{enumerate}
+
+
+	\item Докажите, что для любой формулы $\varphi = \varphi\lr*{x_1, \ldots, x_n}$ и любых термов $t_1,\ldots, t_n$ в исчислении предикатов выводимы формулы
+	\[ \forall x_1\ldots \forall x_n\ \varphi\ \rightarrow\ \varphi(t_1,\ldots, t_n)
+	   \text{\ \ и\ \ }
+	   \varphi(t_1,\ldots, t_n)\ \rightarrow\ \exists x_1\ldots \exists x_n\ \varphi. \]
+
+	\item Если из множества формул выводима любая формула, то его называют
+противоречивым, а в противном случае~— непротиворечивым. Докажите следующее:\enumsep
+	    \item[(а)] Множество формул $T$ противоречиво тогда и только тогда, когда из него выводима хотя бы одна формула вида $\theta \land \neg\theta$. 
+	    \item[(б)] Если множества формул $T_n$, $n \in \mathbb{N}$ непротиворечивы и $T_0\subseteq T_1 \subseteq\ldots$, то множество $\bigcup_nT_n$ непротиворечиво. 
+	    \item[(в)] Если $\varphi$~— предложение, $T$~— множество формул и $T\cup\{\varphi\}$ противоречиво, то $T\vdash\neg\varphi$. 
+	    \item[(г)] Если множество формул $T$ непротиворечиво, то для любого предложения $\varphi$ непротиворечиво хотя бы одно из множеств $T\cup\{\varphi\}$ и $T\cup\{\neg\varphi\}$. 
+	    \item[(д)] Если множество предложений $S =T\cup\{\exists x\ \psi(x)\}$ непротиворечиво, то и множество $S\cup\{\psi(c)\}$ непротиворечиво для любого не входящего в формулы из $S$ сигнатурного константного символа $c$. 
+	\end{enumerate}
+
+	\item Пусть $T$~— теория Хенкина, т.\:е. $T$ непротиворечива, любое предложение или его отрицание выводимо из $T$ и для любого выводимого из $T$ предложения вида $\exists x \psi(x)$ существует константный символ $c \in \sigma$ такой, что $T\vdash\psi(c)$. Докажите следующее:
+
+$T\vdash\neg\varphi\iff T\not\vdash\varphi$. 
+
+$T\vdash(\varphi \lor \psi)\iff  T\vdash\varphi$ или
+$T\vdash\psi$. 
+
+ $T\vdash(\varphi \rightarrow \psi)\iff 
+T\not\vdash\varphi$ или $T\vdash\psi$.
+
+$T\vdash\exists x \theta(x)\iff  T\vdash\theta(t)$ для
+некоторого терма $t$ без переменных. 
+
+ $T\vdash\forall x
+\theta(x)\iff  T\vdash\theta(t)$ для любого терма $t$ без переменных.
+
+
+	\item Докажите, что любая непротиворечивая теория не более чем счетной сигнатуры $\sigma$ может быть расширена до теории Хенкина сигнатуры $\sigma_C$, где  $C$ --- счетное множество новых константных символов. 
+\end{enumerate}
+
+\end{document}
+
+
