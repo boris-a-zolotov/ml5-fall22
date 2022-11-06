@@ -1,0 +1,92 @@
+\subsection{Лекция 8}
+
+\begin{stat}[Тест Линдстрёма]
+    Если некоторая теория $T$ $\Pi_2$-аксиоматизируема, не имеет конечных моделей и категорична в некоторой мощности $\lambda\ge|\text{For}_\sigma|$, то она модельно полна.
+\end{stat}
+
+\begin{proof}
+    % TODO: доказательство
+\end{proof}
+
+
+
+
+\subsubsection{Элиминация кванторов}
+\begin{definition}
+    Теория $T$ допускает элиминацию кванторов, если любая формула равносильна бескванторной.
+\end{definition}
+
+\begin{prop}\
+    \begin{enumerate}
+        \item Если $T$ допускает элиминацию кванторов, то она модельно полна;
+
+        \item Если для любой бескванторной формулы $\theta(\overline{x}, y)$ равносильна некоторой бескванторной, то $T$ допускает элиминацию кванторов;
+
+        \item Если для данной формулы $\varphi$ выполнено условие $\circledast$, то $\varphi$ равносильна бескванторной $\psi(\overline{x})$ в $T$.
+
+            Условие $\circledast$: для любых вложений (то есть изоморфизмов на подструктуры) $f: \mathbb{C} \rightarrow \mathbb{A}$, $g: \mathbb{C} \rightarrow \mathbb{B}$ $\sigma$-структуры $\mathbb{C}$ в модели $\mathbb{A}, \mathbb{B}$ теории $T$ и для любых значений $\overline{c}\in\mathbb{C}$  выполнено $\varphi(f(\overline{c}))=\varphi(g(\overline{c}))$  
+
+        \item Пусть для любой бескванторной $\theta(\overline{x}, y)$ формула $\phi(\overline{x}) = \exists y~\theta(\overline{x}, y)$ удовлетворяет $\circledast$. Тогда $T$ допускает элиминацию кванторов.
+    \end{enumerate}
+\end{prop}
+
+
+\begin{proof}\
+    \begin{enumerate}
+    % Пункт 1
+        \item Одно из эквивалентных условие модельно полной теории -- равносильность любой формулы универсальной, а любая бескванторная формула лежит в $\Pi_1$.
+
+    % Пункт 2
+        \item % По утверждению лектора, доказательство было на практике
+        Доказывается индукцией по сложности формулы, кванторы всеобщности можно представить через кванторы существования.
+
+    % Пункт 3
+   \item
+       Схема доказательства уже неоднократно нами применялась.
+
+       Зафиксируем $\varphi(x_1, \ldots, x_k)$, удовлетворяющую $\circledast$. Обогатим сигнатуру новыми константами $\overline{d} = (d_1, \ldots, d_k)$. Для доказательства нам надо придумать бескванторную $\psi$, такую что в исходной сигнатуре $T\models \forall \overline{x}~(\varphi(\overline{x})\leftrightarrow\psi(\overline{x}))$, что эквивалентно $T\models \varphi(\overline{d}) \leftrightarrow \psi(\overline{d})$ в обогащённой структуре.
+
+       Пусть $\Gamma = \{\gamma \text{ - бескванторное }\sigma_{\overline{d}} \text{-предложение}  \mid T\models \varphi(\overline{d})\rightarrow \gamma\}$. Достаточно доказать, что $T\cup\Gamma\models\varphi(\overline{d})$. Действительно, если это так, то по теореме о компакности для конечного $\{\gamma_i\}_i\subset\Gamma$ верно $T\cup\{\gamma_i\}_i\models \varphi(\overline{d})$, откуда для $\gamma=\wedge_i\gamma_i$ верно $T\models \gamma\rightarrow \varphi(\overline{d})$.
+
+       Будем доказывать от противного. Тогда $T\cup\Gamma\cup\{\neg\varphi(\overline{d})\}$ имеет модель $\mathbb{A}$. Обозначим через $d_i'$ интерпретацию $d_i$ в структуре $\mathbb{A}$.
+
+       Пусть $\mathbb{C}$ -- подструктура $\mathbb{A}$, порождённая элементами $d_1',\ldots, d_k'$. Конечно, $\mathbb{C}$ не обязана быть моделью $T$. Пусть $f:\mathbb{C}\rightarrow\mathbb{A}$ -- тождественное вложение.
+       % TODO: Добавить строгое определение подструктуры, порождённой элементами? 
+        
+       $\text{Diag}(\mathbb{C})$ -- вариант $D(\mathbb{C})$, но без использования новых констант.
+       % TODO: Получше расписать определение
+
+       \begin{stat} % Лучше убрать нумерацию у этого утверждения
+        $T\cup\text{Diag}(\mathbb{C})\cup\{\varphi(\overline{d})\}$ имеет модель.
+       \end{stat}
+       \begin{proof}
+           Доказываем от противного. Тогда для некоторого конечного подмножества $\Gamma$ $T\cup\{\delta_1(\overline{d},\ldots,\delta_n(\overline{d}))\}\cup\{\varphi(\overline{d})\}$ не имеет модели. Значит $T\models \bigwedge\delta_i(\overline{d})\rightarrow\neg\varphi{d}$, откуда $T\models \varphi(\overline{d})\rightarrow\bigvee\neg\delta_i(\overline{d})$.
+           
+           Тогда $\gamma=\bigvee\neg\delta_i(\overline{d})$ лежит в $\Gamma$. Значит $\mathbb{A}\models \gamma$, но по определению $\text{Diag}$ выполнено $\mathbb{A}\models \neg\gamma$. Противоречие
+       \end{proof}
+        
+       Пусть $\mathbb{B}'$ -- модель, удовлетворяющая утверждению. Рассмотрим её обеднение $\mathbb{B}$ до структуры $\sigma$. Существует единственное вложение $g: \mathbb{C}\rightarrow \mathbb{B}$, переводящее $d_i$ в $d_i'$.
+
+       Наконец, воспользуемся условием $\circledast$. По определению, в $\mathbb{A}$ $\varphi(f(\overline{d}))$ ложно, а в $\mathbb{B}$ $\varphi(g(\overline{d}))$ истинно. Противоречие.
+
+    % Пункт 4
+    \item Очевидно следует из пунктов 2 и 3.
+    \end{enumerate}
+\end{proof}
+
+
+Тарский доказал, что структуры $(\mathbb{R}, <, +, \cdot, 0, 1)$ и $(\mathbb{C}, +, \cdot, 0, 1)$ допускают элиминацию кванторов. Доказательство конструктивное, но длинное. Мы докажем то же самое утверждение для всех алгебраически замкнутых полей, но не конструктивно.
+% А можно доказывать и конструктивно, но доказательство сложнее.
+
+\begin{exmpl}
+    Теория ACF (теория алгебраически замкнутых полей) допускает элиминацию кванторов
+\end{exmpl}
+
+% TODO: расписать доказательство
+\begin{proof}\
+
+    Сначала докажем, что ACF модельно полна, используя тест Линдстрёма.
+    % Примечание: не уверен, что в итоге доказали именно это 
+
+    Для доказательства основного факта воспользуемся пунктом 4 предыдущего утверждения.
+\end{proof}
