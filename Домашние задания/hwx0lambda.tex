@@ -1,0 +1,62 @@
+\documentclass[a4paper,11pt]{article}
+\usepackage{../ml5,epigraph}
+
+	\DeclareMathOperator{\Pow}{Pow}
+	\DeclareMathOperator{\Pred}{Pred}
+
+\begin{document}
+
+   \newcommand{\enumsep}{\vspace{-2.8mm}
+   		\begin{enumerate}[itemsep=0.4mm,leftmargin=2.5mm]}
+
+   \renewcommand{\l}{\ensuremath{\lambda}}
+   
+   \newcommand{\ltrue}{\text{\bf True}}
+   \newcommand{\lfalse}{\text{\bf False}}
+
+\begin{center}
+	{\Large Домашнее задание 10\l .\quad\l -исчисление.}
+
+	{\it (Группы Б02 и Б03, 9 ноября\ \(\to\)\ 16 ноября)}
+\end{center}
+
+\begin{flushright}
+  \begin{minipage}{7cm}
+    \begin{verbatim}
+  \item \begin{enumerate}
+  \item[(а)]
+    \end{verbatim} \vspace{-5.5mm} \hrule
+  \end{minipage}
+
+{\it Домашнее задание по логике}
+\end{flushright}
+
+
+\begin{enumerate}
+	\item Напомним, \[\ltrue \coloneqq \l x.\ \l y.\ x,\qquad
+	                 \lfalse \coloneqq \l x.\ \l y.\ y.\]
+
+	Выразите логические операции \(\land\), \(\lor\), \(\oplus\), \(\rightarrow\), \(\downarrow\) (отрицание дизъюнкции) как \l -термы, которые можно применять к \(\ltrue\) и \(\lfalse\). Покажите эквивалентность термов, соответствующих правым и левым частям каких-нибудь пяти основных равносильностей.
+
+	\item \begin{enumerate}
+	   \item[(а)] Выпишите \l -терм \(\Pow\), соответствующий возведению в степень чёрчевских нумералов. Проверьте себя, получив \(\mathbf{8}\) в результате \(\beta\)-редукции терма\linebreak \(\Pow\ \mathbf{2}\ \mathbf{3}\). А что будет, если редуцировать \(\mathbf{2}\ \mathbf{2}\ \ldots\ \mathbf{2}\)?
+	   \item[(й)] Выпишите \l -терм IsZero, который при применении к чёрчевскому нумералу \(n\) редуцируется в \(\ltrue\), если \(n = \mathbf{0}\), иначе в \(\lfalse\).
+	\end{enumerate}
+	   
+\item Пусть \(\l x.\ \l y.\ \l f.\ \lr*{f\ x\ y}\) создаёт упорядоченную пару из элементов \(x\) и \(y\). Например, \(\l f.\ f\ 3\ 5\)~— такая вот упорядоченная пара. \begin{enumerate}
+	\item[(а)] Выпишите \l -терм First, который при применении к упорядоченной паре вернёт её первый элемент.
+	\item[(б)] Выпишите \l -терм, преобразующий пару \(\lr*{a,b}\) в пару \(\lr*{b,b+1}\). Отсюда получите \l -терм \(\Pred\), соответствующий взятию предыдущего чёрчевского нумерала (\(\Pred \mathbf{0} = \mathbf{0}\)). Проверьте себя, применив его к \(\mathbf{3}\) и редуцировав результат.
+	\end{enumerate}
+
+	\item Придумайте терм без нормальной формы: который можно бесконечное число раз \(\beta\)-редуцировать.
+
+	\item Пусть \[\mathbf{S} \coloneqq \l x.\ \l y.\ \l z.\ \lr*{\lr*{x\ z}\ \lr*{y\ z}},\qquad
+	              \mathbf{K} \coloneqq \ltrue.\]
+
+Выразите, применяя \(\mathbf{S}\) и \(\mathbf{K}\) друг к другу, \(\lfalse\); \(\oplus\); {\it вашу желаемую оценку за курс логики.}
+	
+\end{enumerate}
+
+\end{document}
+
+
