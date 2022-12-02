@@ -1,0 +1,79 @@
+% Окончание доказательства предложения с предыдущей лекции находится в конце файла 11 лекции.
+
+\subsection{Лекция 12}
+
+Используя функцию $\beta$ любой конечной последовательности натуральных чисел $(a_1, \ldots, a_n)$ можно сопоставить её код:
+$$\langle a_1, \ldots, a_n \rangle = \mu a~(\beta(a, 0)=n\wedge \beta(a, 1)=a_1 \wedge \ldots \wedge \beta(a, n)=a_n)$$
+Например, пустой последовательности соответствует соответствует $\langle \rangle $ -- наименьшее $a$, такое что $\beta(a, 0)=0$, то есть $\langle \rangle =0$
+
+Введём новые функции 
+\begin{itemize}
+    \item Функция <<начало>>: $\text{нач}(a, i)=\mu x~(\beta(x, 0)=i\wedge \forall j<i~(\beta(x, j+1)=\beta(a, j+1)))$
+    \item Предикат $\text{Пос}(a) = \neg \exists x<a ~(\beta(x, 0)=\beta(a, 0)\wedge \forall i<\beta(a, 0) (\beta(x, i+1)=\beta(a, i+1)))$ % Переписал с книги, кажется на лекции была опечатка.
+\end{itemize}
+
+\begin{prop}[Свойства кодирования последовательностей]\
+    \begin{itemize}
+        \item Функции $\text{нач}$ и $\langle a_1, \ldots, a_n \rangle $ при $n>0$ рекурсивны, предикат $\text{Пос}$ рекурсивен.
+        \item $a=\langle a_1, \ldots, a_n \rangle \Rightarrow \beta(a, 0)=n\wedge\beta(a, 1)=a_1\wedge\ldots\wedge \beta(a, n)=a_n$
+        \item $(a_1, \ldots, a_n)\ne(b_1, \ldots, b_n) \Rightarrow \langle a_1, \ldots, a_n\rangle \ne\langle b_1, \ldots, b_n\rangle $
+        \item $a = \langle a_1, \ldots, a_n \rangle \Rightarrow \text{нач}(a, i)=\langle a_1, \ldots, a_i\rangle $ при $i\le n$
+        \item $\text{Пос}(a)\text{ -- истина } \Leftrightarrow a \text{ -- код некоторой последовательности}$
+    \end{itemize}
+\end{prop}
+% Доказательства по определениям, поэтому на лекции подробно рассказаны не были
+
+\begin{theorem}[о рекурсивных определениях]\
+    Пусть $\overline{x}$ -- вектор переменных (возможно пустой)
+    \begin{enumerate}
+        \item Если функция $g(\overline{x}, y, z)$ рекурсивна, то рекурсивна и функция $$f(\overline{x}, y)=g(\overline{x}, y, \langle f(\overline{x}, 0), \ldots, f(\overline{x}, y-1)\rangle)$$ Про такую $f$ говорят, что она определена рекурсией с помощью $g$.
+        \item Если предикат $Q(\overline{x}, y, z)$ рекурсивен, то рекурсивен и предикат $$P(\overline{x}, y)=Q(\overline{x}, y, \langle \chi_P(\overline{x}, 0), \ldots, \chi_P(\overline{x}, y-1)\rangle)$$
+    \end{enumerate}
+
+\end{theorem}
+
+\begin{proof}
+Второй пункт получается из первого заменой $f$ на $\chi_P$, а $g$ на $\chi_Q$.
+
+Рассмотрим вспомогательную функцию $h$:
+\[
+    \begin{aligned}
+        h(\overline{x}, y) &= \langle f(\overline{x}, 0), \ldots, f(\overline{x}, y-1)\rangle \\ 
+                           &= \mu a~(\text{Пос}(a)\wedge \beta(a, 0)=y \wedge \forall i<y~(\beta(a, i+1)=f(\overline{x}, i))) \\
+                           &= \mu a~(\text{Пос}(a)\wedge \beta(a, 0)=y \wedge \forall i<y~(\beta(a, i+1)=g(\overline{x}, i, \text{нач}(a, i)))) \\
+    \end{aligned}
+\]
+Значит $h(\overline{x}, y)$ рекурсивна, поэтому $f(\overline{x}, y) = g(\overline{x}, y, h(\overline{x}, y))$ тоже рекурсивна.
+\end{proof}
+
+
+% В нумерации лектора это 13 раздел. Но куда делся 12?
+\subsubsection{Кодирование $\text{ИП}_\sigma$}
+\begin{remark}
+    Повествование в этом (и предыдущем) разделе перекликается с книгой "Краткий курс математической логики" В.Л. Селиванова 1992 года издания.
+\end{remark}
+% (интуитивное размышление) Будем доказывать факты про неразрешимость, но это интуитивное понятие. Поэтому закодируем всё натуральными числами и будем доказывать для них
+
+Пусть $\sigma$ -- конечная сигнатура. Для примера возьмём $\sigma = \{<, =, +, \cdot, 0, 1\}$, а что делать для остальных сигнатур будет понятно.
+
+Из чего состоят формулы? Из счётного набора переменных $\{v_0, v_1, \ldots\}$ и математических символов. Сопоставим им натуральные числа:
+
+\begin{tabular}{c c c c c c c c c c c c c}
+    $v_n$ & $\wedge$ & $\vee$ & $\rightarrow$ & $\neg$ & $\forall$ & $\exists$ & $=$ &$<$ & $+$ & $\cdot$ & 0 & 1 \\
+    $2n$ & 1 & 3 & 5 & 7 & 9 & 11 & 13 & 15 & 17 & 19 & 21 & 23 
+\end{tabular}
+
+Теперь закодируем термы. Через $\cor{t}$ будем обозначать код терма. Пусть $\cor{v_n} = \langle 2n \rangle$, $\cor{0} = \langle 21 \rangle$, $\cor{1} = \langle 23 \rangle $ -- взяли значения из таблицы. Остальные термы кодирутся по рекурсии, например $\cor{s+t} = \langle 17, \cor{s}, \cor{t} \rangle $. Формулы кодируются аналогично, например $\cor{s=t} = \langle 13, \cor{s}, \cor{t}\rangle $, $\cor{\forall v_n \vfi} = \langle 9, 2n, \cor{\vfi}\rangle $
+
+Введём несколько новых предикатов и функций:
+\begin{itemize}
+    \item $\text{T}(a) \Leftrightarrow a \text{ -- код терма}$
+    \item $\text{Ф}(a) \Leftrightarrow a \text{ -- код формулы}$
+    \item $\text{Ф}_0(a) \Leftrightarrow a$ -- код формулы, не содержащей свободных переменных, кроме $v_0$
+    \item $\text{Пр}(a) \Leftrightarrow a $-- код предложения
+    \item $\text{отр}(a)$ -- функция, равная $\cor{\neg \vfi}$, если $a=\cor{\vfi}$ и 0 иначе.
+    \item $\text{подс}(a, b, c)$: если $a$ -- код формулы $\vfi(x)$, $b$ -- код переменной $x$, а $c$ -- код терма $t$, для которого разрешена подстановка $\vfi(t)$, то $\text{подс}(a, b, c)=\cor{\vfi(t)}$, иначе 0
+    \item Для множества формул $T$ предикат $P_T(a)$ выполнен когда $a$ -- код некоторой формулы из $T$
+    \item $\text{Выв}_T(a, b)$ выполнен, если $\text{Пр}(b)$ и $a$ есть код последовательности кодов формул $\vfi_1, \ldots, \vfi_n$, которая является выводом предложения с кодом $b$ из теории $T$ в $\text{ИП}_\sigma$.
+\end{itemize}
+
