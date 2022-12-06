@@ -95,6 +95,12 @@
 
 \def\l{\lambda}
 
+% "Divisible by" symbol -- modification of \vdots that looks less ugly
+% taken from https://tex.stackexchange.com/a/32503
+\DeclareRobustCommand{\divby}{%
+  \mathrel{\vbox{\baselineskip.65ex\lineskiplimit0pt\hbox{.}\hbox{.}\hbox{.}}}%
+}
+
 
 %───────────────────────────────
 %	theorems and statements
@@ -152,6 +158,22 @@
 \DeclarePairedDelimiter\segment{[}{]}
 
 \DeclarePairedDelimiterX{\map}[2]{\lbrace}{\rbrace}{#1 \,\delimsize\vert\,\mathopen{} #2}
+
+
+% Square upper corner brackets for predicate codes (see lecture 12)
+% taken from https://tex.stackexchange.com/a/239286
+\newbox\qqBoxA
+\newdimen\qqCornerHgt
+\setbox\qqBoxA=\hbox{$\ulcorner$}
+\global\qqCornerHgt=\ht\qqBoxA
+\newdimen\qqArgHgt
+\def\cor #1{%
+    \setbox\qqBoxA=\hbox{$#1$}%
+    \qqArgHgt=\ht\qqBoxA%
+    \ifnum     \qqArgHgt<\qqCornerHgt \qqArgHgt=0pt%
+    \else \advance \qqArgHgt by -\qqCornerHgt%
+    \fi \raise\qqArgHgt\hbox{$\ulcorner$} \box\qqBoxA %
+    \raise\qqArgHgt\hbox{$\urcorner$}}
 
 
 %───────────────────────────────
