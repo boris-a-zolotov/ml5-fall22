@@ -1,3 +1,8 @@
+	% По-хорошему, все упоминаемые множества переделать бы в
+	% \set*{ … \:\middle\vert\: … }
+
+	% ЛевЕнгейма
+
 \subsection{3 лекция}
 
 \begin{stat}
@@ -51,8 +56,8 @@
 
     \begin{equation*}
         \begin{aligned}
-            J &= \{i | \mathbb{A}_i \models \theta(b(i), a_1(i), \ldots, a_k(i))\}, \\ 
-            K &= \{i | \mathbb{A}_i \models \varphi(a_1(i), \ldots, a_k(i))\}.
+            J &= \set*{i\:\middle\vert\: \mathbb{A}_i \models \theta(b(i), a_1(i), \ldots, a_k(i))}, \\ 
+            K &= \set*{i\:\middle\vert\: \mathbb{A}_i \models \varphi(a_1(i), \ldots, a_k(i))}.
         \end{aligned}
     \end{equation*} 
 
@@ -64,7 +69,7 @@
 \end{theorem}  
 
 \begin{proof}
-    Пусть $I = \{i | i \text{~— конечное подмножество } \Gamma\}$. Для каждого $i \in I \mapsto \mathbb{A}_i$ существует своя структура. Тогда можно построить следующее семейство структур $\{\mathbb{A}_i\}_{i \in I}$, где $\mathbb{A}_i \models i$. Рассмтрим декартово произведение $\mathbb{A} = \prod_i \mathbb{A}_i$ и $G_i = \{j \in I | i \subseteq j\}$. Если $k \in I$, то $G_i \cap G_k = G_{i \cup k}$ ($I$ - бесконечно). Утверждается, что $F = \{A \subseteq I | \exists_i (G_i \subseteq A)\}$ - ультрафильтр. Свойства проверяются очевидно. 
+    Пусть $I = \set*{i\:\middle\vert\: i \text{~— конечное подмножество } \Gamma}$. Для каждого $i \in I \mapsto \mathbb{A}_i$ существует своя структура. Тогда можно построить следующее семейство структур $\{\mathbb{A}_i\}_{i \in I}$, где $\mathbb{A}_i \models i$. Рассмтрим декартово произведение $\mathbb{A} = \prod_i \mathbb{A}_i$ и $G_i = \set*{j \in I\:\middle\vert\: i \subseteq j}$. Если $k \in I$, то $G_i \cap G_k = G_{i \cup k}$ ($I$ - бесконечно). Утверждается, что $F = \set*{A \subseteq I\:\middle\vert\: \exists i (G_i \subseteq A)}$~— ультрафильтр. Свойства проверяются очевидно. 
 \end{proof}
 
 \begin{definition} \ 
@@ -72,7 +77,7 @@
     \begin{itemize}
         \item $\mathbb{A} \subseteq \mathbb{B}$ iff значения простых формул в $\mathbb{A}$ и $\mathbb{B}$ совпадают; 
         \item $\mathbb{A} \preceq \mathbb{B}$, если $\mathbb{A} \subseteq \mathbb{B}$ и значения любых формул в $A$ и $B$ совпадают (элементарная подструктура); 
-        \item $\mathbb{A} \equiv \mathbb{B}$, если они удовлетворяют одни и те же предложения (элементарная эквивалентность).
+        \item $\mathbb{A} \equiv \mathbb{B}$, если они удовлетворяют одни и те же предложения (элементарная эквивалентность).
     \end{itemize}
 \end{definition}
 
@@ -80,6 +85,6 @@
     $\mathbb{A} \preceq \mathbb{B}$, тогда $\mathbb{A} \subseteq \mathbb{B}$ и $\mathbb{A} \equiv \mathbb{B}$. 
 \end{stat}
 
-\begin{theorem}[Лёвингейма-Сколема, понижение]
+\begin{theorem}[Лёвенгейма-Сколема, понижение]
     Пусть есть $\mathbb{A}$, $X \subseteq \mathbb{A}$, $|X| \leq |\text{For}_\sigma|$. Тогда существует $\mathbb{B} \preceq \mathbb{A}$: $X \subseteq \mathbb{B}$ и $|\mathbb{B}| \leq |\text{For}_\sigma|$. 
 \end{theorem}
