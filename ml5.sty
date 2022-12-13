@@ -94,11 +94,14 @@
 
 \def\l{\lambda}
 
+\newcommand{\divby}{
+   \mathrel{\rlap{.}\rlap{\raisebox{0.55ex}{.}}\raisebox{1.1ex}{.}}}
+
 % "Divisible by" symbol -- modification of \vdots that looks less ugly
 % taken from https://tex.stackexchange.com/a/32503
-\DeclareRobustCommand{\divby}{%
-  \mathrel{\vbox{\baselineskip.65ex\lineskiplimit0pt\hbox{.}\hbox{.}\hbox{.}}}%
-}
+% \DeclareRobustCommand{\divby}{%
+%  \mathrel{\vbox{\baselineskip.65ex\lineskiplimit0pt\hbox{.}\hbox{.}\hbox{.}}}%
+% }
 
 
 %───────────────────────────────

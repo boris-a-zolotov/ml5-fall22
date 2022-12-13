@@ -13,7 +13,7 @@
         E_n = \{(\overline{a}, \varphi(\overline{x}, y))| \overline{a} \in S_n \text{ и } \mathbb{A} \models \exists y \varphi(\overline{a}, y)\}
     \]
 
-    и $\mathbb{A} \models \varphi(\overline{a}, \eta(e))$ ($e \in E$). В качестве $B$ просто возьмём $\bigcup_n S_n$. Нужно проверить, что $|B| \leq |\text{For}_{\sigma}|$ -- это делается по индукции по $S_i$. $E_n$ по мощности не превосходит $\text{For}_{\sigma}$ посредством сравнения через $\text{For}_\sigma^2$, откуда и получаем требуемое. \ 
+    и $\mathbb{A} \models \varphi(\overline{a}, \eta(e))$ ($e \in E$). В качестве $B$ просто возьмём $\bigcup_n S_n$. Нужно проверить, что $|B| \leq |\text{For}_{\sigma}|$~— это делается по индукции по $S_i$. $E_n$ по мощности не превосходит $\text{For}_{\sigma}$ посредством сравнения через $\text{For}_\sigma^2$, откуда и получаем требуемое. \ 
     
     Рассмторим теперь $\mathbb{B} = (B, I)$ с сигнатурой $\sigma$ и проверим, что $B$ замкнуто относительно интерпретаций элементов сигнатуры. Это получается несложно, а предикаты мы зададим как  
 
@@ -27,7 +27,7 @@
         \mathbb{B} \models \varphi(\overline{a}) \Longleftrightarrow \mathbb{A} \models \varphi(\overline{a}).
     \]
 
-    Проверяется это, конечно, индукцией по построению формулы. Рассмотрим $\wedge, \neg$ и $\exists$, через них всё выражается и провреим для них. Конъюнкция -- очевидна, ровно как и отрицание. Интерес представляет существование. Пусть $\psi(\overline{x}) = \exists y \varphi(\overline{x}, y)$. Пусть для $\varphi$ уже доказано, что $\mathbb{B} \models \varphi(\overline{a}, c) \Longleftrightarrow \mathbb{A} \models(\overline{a}, c)$. Слева направо требуемое очевидно, а справа налево я проспал.
+    Проверяется это, конечно, индукцией по построению формулы. Рассмотрим $\wedge, \neg$ и $\exists$, через них всё выражается и провреим для них. Конъюнкция~— очевидна, ровно как и отрицание. Интерес представляет существование. Пусть $\psi(\overline{x}) = \exists y \varphi(\overline{x}, y)$. Пусть для $\varphi$ уже доказано, что $\mathbb{B} \models \varphi(\overline{a}, c) \Longleftrightarrow \mathbb{A} \models(\overline{a}, c)$. Слева направо требуемое очевидно, а справа налево я проспал.
 \end{proof} 
 
 \begin{remark}
@@ -39,8 +39,8 @@
 \begin{definition} \
 
     \begin{enumerate}
-        \item Пусть $\mathbb{A}$ -- $\sigma$-структура. $\sigma_{\mathbb{A}} = \sigma \cup \{c_a | a \in A\}$, $c_a$ -- новые константные символы, причём $c_a \neq c_b$ при $a \neq b$. $D(\mathbb{A})$ -- множество атомарных формул сигнатуры $\sigma_{\mathbb{A}}$ и их отрицаний, истинных в $\mathbb{A}$ при интерпретации $\sigma_a \models a$. (\textit{диаграмма} $\mathbb{A}$) 
-        \item \textit{Элементарная диаграмма} $\mathbb{A}$ -- это множество $D^*(\mathbb{A})$ всех предлжений $\sigma_{\mathbb{A}}$, истинных в $\mathbb{A}$. ($D(\mathbb{A}) \subseteq D^*(\mathbb{A})$)
+        \item Пусть $\mathbb{A}$~— $\sigma$-структура. $\sigma_{\mathbb{A}} = \sigma \cup \{c_a | a \in A\}$, $c_a$~— новые константные символы, причём $c_a \neq c_b$ при $a \neq b$. $D(\mathbb{A})$~— множество атомарных формул сигнатуры $\sigma_{\mathbb{A}}$ и их отрицаний, истинных в $\mathbb{A}$ при интерпретации $\sigma_a \models a$. (\textit{диаграмма} $\mathbb{A}$) 
+        \item \textit{Элементарная диаграмма} $\mathbb{A}$~— это множество $D^*(\mathbb{A})$ всех предлжений $\sigma_{\mathbb{A}}$, истинных в $\mathbb{A}$. ($D(\mathbb{A}) \subseteq D^*(\mathbb{A})$)
     \end{enumerate}
 \end{definition}
 
@@ -57,7 +57,7 @@
 \end{proof} 
 
 \begin{theorem}
-    Пусть имеется бесконечная $\mathbb{A}$ -- $\sigma$-структура и $H \geq \max(|A|, |\text{For}_\sigma|)$. Тогда найдётся $\mathbb{B} \succeq \mathbb{A}$ можности хотя бы $H$.
+    Пусть имеется бесконечная $\mathbb{A}$~— $\sigma$-структура и $H \geq \max(|A|, |\text{For}_\sigma|)$. Тогда найдётся $\mathbb{B} \succeq \mathbb{A}$ можности хотя бы $H$.
 \end{theorem}
 
 \begin{proof}
@@ -67,9 +67,9 @@
         \Gamma = D^*(A) \cup \{\neg(d_x = d_{x'}| x, x' \in H, x \neq x')\} 
     \]
 
-    множество предложений сигнатуры $\tau$. Любое конечное $\Gamma_0 \subseteq \Gamma$ имеет модель, являющуюся $\tau$-расширением структуры $\mathbb{A}$ (легко проверяется). По теореме о компактности существует $\mathbb{C}$ -- $\tau$-структура, такая, что $\mathbb{C} \models \Gamma$. И как-то завершаем доказательство.
+    множество предложений сигнатуры $\tau$. Любое конечное $\Gamma_0 \subseteq \Gamma$ имеет модель, являющуюся $\tau$-расширением структуры $\mathbb{A}$ (легко проверяется). По теореме о компактности существует $\mathbb{C}$~— $\tau$-структура, такая, что $\mathbb{C} \models \Gamma$. И как-то завершаем доказательство.
 \end{proof}
 
 \begin{definition}
-    \textit{Теория} ($T$) -- множество всех предложений в структуре $\sigma$.
+    \textit{Теория} ($T$)~— множество всех предложений в структуре $\sigma$.
 \end{definition}
