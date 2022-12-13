@@ -1,0 +1,81 @@
+\documentclass[letterpaper,11pt]{article}
+\usepackage{../ml5}
+
+\DeclareMathOperator{\Dom}{dom}
+
+\newcommand{\rrarrow}{\text{%
+   \tikz{
+	\draw[white,opacity=0] (0,-0.6ex) -- (0,0);
+	\draw[->>] (0,0) -- (0.16in,0)
+   }%
+}}
+
+\newcommand{\lred}{\mathrel{\rrarrow_\ell}}
+
+\begin{document} \newgeometry{margin=0.9in,top=15mm,bottom=17mm}
+   \pagestyle{empty}
+
+   \newcommand{\enumsep}{\vspace{-2.8mm}
+   		\begin{enumerate}[itemsep=0.4mm,leftmargin=2.5mm]}
+
+\begin{center}
+	{\Large Домашнее задание 15. РП множества, Тьюрингова сводимость,
+	\smallskip \\ 
+	немного о Чёрче—Россере.}
+
+	{\it 14 декабря\ \(\to\)\ 21 декабря} \\
+	{\it Последнее}
+\end{center}
+
+\begin{enumerate}[itemsep=4.5mm]
+   \item Докажите, что для множества $A\subseteq\bn$ равносильны следующие условия: \enumsep
+	\item[(\(*\))] $A$ рекурсивно перечислимо;
+	\item[(\(**\))] $A$~— область значений подходящей одноместной рекурсивной частичной функции;
+	\item[(\(*\!*\!*\))] $A$~— область определения подходящей одноместной рекурсивной частичной функции.
+   \end{enumerate}
+
+   \item Пусть $W_n=\Dom\lr*{\varphi_n}$, тогда $\{W_n\}$~— нумерация всех рекурсивно перечислимых множеств. \\ Докажите, что: \enumsep
+	\item[(а)] $W$ есть главная вычислимая нумерация РПМ;
+	\item[(б)] множество $C=\left\{ n\:\middle\vert\: n\in W_n\right\}$ рекурсивно перечислимо, но не рекурсивно;
+	\item[(в)] любое РПМ  $m$-сводится к $C$;
+	\item[(г)] множества \(\left[\text{MA}\right]\) и \(\left[\text{PA}\right]\) $m$-эквивалентны множеству $C$.
+   \end{enumerate}
+
+   \item Пусть $\leq_T$~— отношение Тьюринговой сводимости на $2^\bn$. Докажите, что: \enumsep
+	\item[(а)] $\leq_T$ есть предпорядок, являющийся собственным расширением предпорядка $\leq_m$;
+	\item[(б)] фактор $2^\bn /\equiv_T$ по индуцированному отношению эквивалентности  континуален;
+	\item[(в)] любые два элемента $2^\bn$ имеют супремум по обоим отношениям $\leq_T$ и $\leq_m$.
+   \end{enumerate}
+
+   \item Тьюрингов скачок множества \(A\)~— оракул для проблемы остановки машины Тьюринга с оракулом \(A\). Формально,
+	\[A' = \left\{ n\:\middle\vert\: n \in W^{A}_n \right\}.\]
+
+   Докажите, что $A'$ рекурсивно перечислимо, но не рекурсивно относительно $A$; $A'\not\leq_T A$; $A\leq_TB\Rightarrow A'\leq_TB'$.
+
+   \item Докажите, что любая рекурсивная функция определима в структуре $(\mathbb{N};+,\cdot)$.
+
+   \item Определим отношение \(\lred\) на множестве всех \(\l\)-термов следующим образом: \vspace{-3.5mm} \begin{center} \begin{tabular}{lll}
+	\(P \lred P\) \\
+	\(P \lred P^\prime\) & \(\Rightarrow\) &
+	  \(\l x.P \lred \l x.P^\prime\) \\
+	\(P \lred P^\prime\!\!,\ Q \lred Q^\prime\) & \(\Rightarrow\) &
+	  \(P\ Q \lred P^\prime\ Q^\prime\) \\
+	\(P \lred P^\prime\!\!,\ Q \lred Q^\prime\) & \(\Rightarrow\) &
+	  \(\lr*{\l x.P}\ Q\lred P^\prime\left[ x \coloneqq Q^\prime \right]\)
+\end{tabular} \end{center}
+
+   Докажите, что \enumsep
+	\item[(а)] \(M \lred M^\prime\!\!,\ N \lred N^\prime\ \Longrightarrow\ M\left[x \coloneqq N\right] \lred M^\prime\left[x \coloneqq N^\prime\right]\)
+	\item[(б)] \begin{tikzcd}
+	   M_1 \arrow[r, "\lred"] \arrow[d, "\lred"]
+	&  M_2 \arrow[d, dashed, "\lred"]
+	\\ M_3 \arrow[r, dashed, "\lred"]
+	& \exists M_4
+	           \end{tikzcd}
+
+	\item[(в)] Отношение \(\beta\)-редукции термов за несколько шагов является транзитивным замыканием отношения \(\lred\).
+   \end{enumerate}
+
+\end{enumerate}
+
+\end{document}
