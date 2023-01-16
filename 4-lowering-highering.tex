@@ -2,74 +2,85 @@
 
 \begin{proof}
     Построим последовательность $X = S_0 \subseteq S_1 \subseteq \ldots$, где 
-
     \[ 
-        S_{n+1} = S_n \cup \{\eta(e)| e \in E_n\},
+        S_{n+1} = S_n \cup \{\eta(e) \mid e \in E_n\},
     \]
-
     где $E_n$ и $\eta: E_n \rightarrow A$ определены следующим образом: 
-
     \[ 
-        E_n = \{(\overline{a}, \varphi(\overline{x}, y))| \overline{a} \in S_n \text{ и } \mathbb{A} \models \exists y \varphi(\overline{a}, y)\}
+        E_n = \{(\overline{a}, \varphi(\overline{x}, y)) \mid \overline{a} \in S_n \text{ и } \mathbb{A} \models \exists y~\varphi(\overline{a}, y)\}
+        \quad\text{и}\quad
+        \mathbb{A} \models \varphi(\overline{a}, \eta(e))\ (\forall e \in E_n).
     \]
-
-    и $\mathbb{A} \models \varphi(\overline{a}, \eta(e))$ ($e \in E$). В качестве $B$ просто возьмём $\bigcup_n S_n$. Нужно проверить, что $|B| \leq |\text{For}_{\sigma}|$~— это делается по индукции по $S_i$. $E_n$ по мощности не превосходит $\text{For}_{\sigma}$ посредством сравнения через $\text{For}_\sigma^2$, откуда и получаем требуемое. \ 
+    В качестве $B$ просто возьмём $\bigcup_n S_n$. Нужно проверить, что $|B| \leq |\text{For}_{\sigma}|$~— это делается индукцией по $S_i$. $E_n$ по мощности не превосходит $\text{For}_{\sigma}$ посредством сравнения через $\text{For}_\sigma^2$, откуда и получаем требуемое. 
     
-    Рассмторим теперь $\mathbb{B} = (B, I)$ с сигнатурой $\sigma$ и проверим, что $B$ замкнуто относительно интерпретаций элементов сигнатуры. Это получается несложно, а предикаты мы зададим как  
+    Рассмотрим теперь $\mathbb{B} = (B, I)$ с сигнатурой $\sigma$ и проверим, что $B$ замкнуто относительно интерпретаций элементов сигнатуры. Для константных символов выполнено $(\emptyset, y=c)\in E_0$. Для функционального символа $f$, если элементы $\overline{a}\in S_n$, то $(\overline{a}, y = f(\overline{a}))\in E_n$. А интерпретация предикатов в структуре $\bb$ задаётся как и в $\ba$:
 
     \[ 
-        P^{\mathbb{B}}(b_1, \ldots, b_n) \Lra P^{\mathbb{A}}(b_1, \ldots, b_n) = T.
+        P^{\mathbb{B}}(b_1, \ldots, b_n)=T \iff P^{\mathbb{A}}(b_1, \ldots, b_n) = T.
     \]
 
-    Осталось лишь проверить, что для любой формулы $\varphi(x_1, \ldots, x_k)$ и для любых значений переменных $(a_1, \ldots, a_k) = \overline{a} \in B$, тогда значение на этих элементах в $\mathbb{B}$ будет совпадать со занчением в $\mathbb{A}$: 
+    Осталось лишь проверить, что для любой формулы $\varphi(x_1, \ldots, x_k)$ и для любых значений переменных $(a_1, \ldots, a_k) = \overline{a} \in B$ значение на этих элементах в $\mathbb{B}$ будет совпадать со значением в $\mathbb{A}$: 
 
     \[ 
         \mathbb{B} \models \varphi(\overline{a}) \Longleftrightarrow \mathbb{A} \models \varphi(\overline{a}).
     \]
 
-    Проверяется это, конечно, индукцией по построению формулы. Рассмотрим $\wedge, \neg$ и $\exists$, через них всё выражается и провреим для них. Конъюнкция~— очевидна, ровно как и отрицание. Интерес представляет существование. Пусть $\psi(\overline{x}) = \exists y \varphi(\overline{x}, y)$. Пусть для $\varphi$ уже доказано, что $\mathbb{B} \models \varphi(\overline{a}, c) \Longleftrightarrow \mathbb{A} \models(\overline{a}, c)$. Слева направо требуемое очевидно, а справа налево я проспал.
+    Проверяется это, конечно, индукцией по построению формулы. Рассмотрим $\wedge, \neg$ и $\exists$ — через них всё выражается —  и проверим для них. Конъюнкция~— очевидна, ровно как и отрицание. Интерес представляет существование. Пусть $\psi(\overline{x}) = \exists y\, \varphi(\overline{x}, y)$. Пусть для $\varphi$ уже доказано, что $\mathbb{B} \models \varphi(\overline{a}, c) \Longleftrightarrow \mathbb{A} \models\vfi(\overline{a}, c)$. Слева направо требуемое очевидно, а справа налево получается из построенной конструкции: если $\overline{a}\in S_n$, то $(\overline{a}, \vfi)\in E_n$, на шаге $n+1$ получим нужный $c\in S_{n+1}$, значит $\bb\models \psi(\overline{a})$.
 \end{proof} 
 
 \begin{remark}
-    На этом месте могло бы быть лирическое отступление про ZFC. 
+    Теория ZFC строится в сигнатуре $\{=, \in\}$. Множествао $\set*{\vfi \mid \text{ZFC}\models \vfi}$ — в точности множество всех математических теорем. Мы считаем, что ZFC непротиворечива (то есть из ZFC не следует тождественно ложного утверждения; это гипотеза).
+
+    Рассмотрим $\ba\models \text{ZFC}$. По теореме Лёвенгейма-Сколема, так как мощность множества формул счётно, то существует счётная модель $\ba_0\models \text{ZFC}$. Это утверждение называется \emph{парадоксом Сколема}. На самом деле никаких противоречий нет. Но показывает, что понятие мощности не такое простое, каким кажется на первый взгляд.
 \end{remark}
 
-Пусть теперь $\mathbb{A} \equiv \mathbb{B}$, $\mathbb{A} \preceq \mathbb{B}$. $\tau$ называется \textit{обогащением} структуры $\sigma$, если последняя лежит в первой и дополнение непусто.
+% В прошлый раз дали определение $\mathbb{A} \equiv \mathbb{B}$, $\mathbb{A} \preceq \mathbb{B}$.
+Сигнатура $\tau$ называется \textit{обогащением} сигнатуры $\sigma$ (записывается $\sigma\subseteq\tau$), если последняя лежит в первой и дополнение непусто. Если $\ba$ — структура в сигнатуре $\sigma$, то определив интерпретацию символов $\tau\textbackslash\sigma$, то получим структуру $\ba$ сигнатуры $\tau$ — тоже называется обогащением. Наоборот: если $\bb$ — $\tau$-структура, то $B|_\sigma$ — \emph{обеднение}. Чаще всего сигнатуры обобщаются константными символами.
 
 \begin{definition} \
 
     \begin{enumerate}
-        \item Пусть $\mathbb{A}$~— $\sigma$-структура. $\sigma_{\mathbb{A}} = \sigma \cup \{c_a | a \in A\}$, $c_a$~— новые константные символы, причём $c_a \neq c_b$ при $a \neq b$. $D(\mathbb{A})$~— множество атомарных формул сигнатуры $\sigma_{\mathbb{A}}$ и их отрицаний, истинных в $\mathbb{A}$ при интерпретации $\sigma_a \models a$. (\textit{диаграмма} $\mathbb{A}$) 
-        \item \textit{Элементарная диаграмма} $\mathbb{A}$~— это множество $D^*(\mathbb{A})$ всех предлжений $\sigma_{\mathbb{A}}$, истинных в $\mathbb{A}$. ($D(\mathbb{A}) \subseteq D^*(\mathbb{A})$)
+        \item Пусть $\mathbb{A}$~— $\sigma$-структура. $\sigma_{\mathbb{A}} = \sigma \cup \{c_a \mid a \in A\}$, где $c_a$~— новые константные символы, причём $c_a \neq c_b$ при $a \neq b$. $D(\mathbb{A})$~— множество атомарных формул сигнатуры $\sigma_{\mathbb{A}}$ (либо $c=d$, либо $f(c_1, \dots, c_k)=d$, либо $P(c_1, \dots, c_k)$, где все аргументы — константы) и их отрицаний, истинных в $\mathbb{A}$ при интерпретации $\sigma_a \models a$. (\textit{диаграмма} $\mathbb{A}$) 
+        \item \textit{Элементарная диаграмма} $\mathbb{A}$~— это множество $D^*(\mathbb{A})$ всех предложений $\sigma_{\mathbb{A}}$, истинных в $\mathbb{A}$. ($D(\mathbb{A}) \subseteq D^*(\mathbb{A})$)
     \end{enumerate}
 \end{definition}
 
 \begin{stat} \ 
-
     \begin{enumerate}
-        \item Если $\mathbb{B} \models D(\mathbb{A})$, то $\mathbb{B}|_{\sigma}$ содержит подструктуту $\mathbb{A}' \subseteq \mathbb{B}|_{\sigma}$, такую что $\mathbb{A}' \simeq \mathbb{A}$. 
+        \item Если $\mathbb{B} \models D(\mathbb{A})$, то $\mathbb{B}|_{\sigma}$ содержит подструктуру $\mathbb{A}' \subseteq \mathbb{B}|_{\sigma}$ такую, что $\mathbb{A}' \simeq \mathbb{A}$. 
         \item Если $\mathbb{B} \models D^*(\mathbb{A})$, то $\mathbb{B}|_{\sigma}$ содержит элементарную подструктуру, изоморфную $\mathbb{A}$. 
     \end{enumerate}
 \end{stat}
 
 \begin{proof}
-    *на доске рисуются картинки*
+    В каждом пункте нужная структура состоит из множества $A'$ всех констант сигнатуры $\sigma_\ba$.
 \end{proof} 
 
-\begin{theorem}
-    Пусть имеется бесконечная $\mathbb{A}$~— $\sigma$-структура и $H \geq \max(|A|, |\text{For}_\sigma|)$. Тогда найдётся $\mathbb{B} \succeq \mathbb{A}$ можности хотя бы $H$.
+\begin{theorem}[Лёвенгейма-Сколема о повышении мощности]
+    Пусть имеется бесконечная $\sigma$-структура $\mathbb{A}$ и $\varkappa \geq \max(|A|, |\text{For}_\sigma|)$. Тогда найдётся $\mathbb{B} \succeq \mathbb{A}$ мощности в точности $\varkappa$.
 \end{theorem}
 
 \begin{proof}
-    Рассмотрим $\sigma \mapsto \sigma_{\mathbb{A}} \models \tau = \sigma_{\mathbb{A}} \cup \{d_x | x \in H\}$ так, что $x \neq x' \Rightarrow d_x \neq d_{x'}$. И построим  
-
+    Рассмотрим исходную сигнатуру и дважды её расширим: $\sigma \mapsto \sigma_{\mathbb{A}} \mapsto \tau = \sigma_{\mathbb{A}} \cup \{d_x \mid x \in \kappa\}$ так, что $x \neq x' \Rightarrow d_x \neq d_{x'}$. И построим множество предложений сигнатуры $\tau$
     \[ 
-        \Gamma = D^*(A) \cup \{\neg(d_x = d_{x'}| x, x' \in H, x \neq x')\} 
+        \Gamma = D^*(A) \cup \{\neg(d_x = d_{x'})\mid x, x' \in \varkappa, x \neq x'\}.
     \]
+    Любое конечное $\Gamma_0 \subseteq \Gamma$ имеет модель, являющуюся $\tau$-расширением структуры $\mathbb{A}$ (интерпретируем $c_a\mapsto a$, а конечному подмножеству $\{d_{x_k}\}_{k\le n}$, входящих в $\Gamma_0$, сопоставим различные элементы $A$). По теореме о компактности существует $\mathbb{C}$~— $\tau$-структура, такая, что $\mathbb{C} \models \Gamma$. 
 
-    множество предложений сигнатуры $\tau$. Любое конечное $\Gamma_0 \subseteq \Gamma$ имеет модель, являющуюся $\tau$-расширением структуры $\mathbb{A}$ (легко проверяется). По теореме о компактности существует $\mathbb{C}$~— $\tau$-структура, такая, что $\mathbb{C} \models \Gamma$. И как-то завершаем доказательство.
+    Тогда $\varkappa\le |C|$ из-за существования инъекции $x\mapsto d_x$. $\bc|_{\sigma_\ba}\models D^*(\ba)$, значит есть $\ba'\preceq \bc$, изоморфная $\ba$. Воспользуемся теоремой Лёвенгейма-Сколема о понижении мощности для $\bc$ и $X = A'$, получим $\bb'\preceq\bc$ мощности $|\bb'|\le|\text{For}_\tau| = \varkappa$. С другой стороны, $B'\supseteq A'$, поэтому $|B'|\ge |A'| = \varkappa$ (TODO: кажется, последнее равенство не всегда верно, но можно заменить X на множество побольше). Значит $|\bb'| = \varkappa$. Обеднение $\bb'$ и есть искомая структура.
 \end{proof}
 
-\begin{definition}
-    \textit{Теория} ($T$)~— множество всех предложений в структуре $\sigma$.
+%\begin{exmpl}
+%    Для $(\bn; =, +, \cdot)$-структуры
+%\end{exmpl}
+
+
+
+\begin{definition}\
+    \begin{itemize}
+    \item\textit{Теория} $T$~— множество предложений сигнатуры $\sigma$.
+    \item Теории $T$ соответствует класс структур $\text{Mod}(T) = \set*{A\mid A\models T}$
+    \item Классу структур $K\subseteq\text{Str}_\sigma$ соответствует теория $\text{Th}(K) = \set*{\vfi\text{ — предложение}\mid \forall \ba\in K~\ba\models \vfi}$
+    \item Класс структур $K$ называется \emph{аксиоматизируемым}, если $K = \text{Mod}(T)$ для некоторой теории $T$.
+\end{itemize}
 \end{definition}
