@@ -3,22 +3,24 @@
 
 	% ЛевЕнгейма
 
-\subsection{3 лекция}
-
-\begin{stat}
-    $$\varphi([a_1], \ldots, [a_k]) \Longleftrightarrow \{i| \mathbb{A} \models \varphi(a_1(i), \ldots, a_k(i))\} \in F.$$ 
-\end{stat} 
+\subsection*{Лекция 3}
+% Закомментировал, потому что формулировка в конце предыдущей лекции
+%\begin{stat}
+%    $$\varphi([a_1], \ldots, [a_k]) \Longleftrightarrow \{i\mid \mathbb{A} \models \varphi(a_1(i), \ldots, a_k(i))\} \in F.$$ 
+%:\end{stat} 
 
 \begin{stat}[Следствие]
-    $$\mathbb{A}_F \models \varphi \Longleftrightarrow \{i | \mathbb{A}_i \models \varphi\} \in F.$$
+    Для ультрафильтра $F$ и предложения $\vfi$ выполенно
+    $$\mathbb{A}_F \models \varphi \Longleftrightarrow \{i \mid \mathbb{A}_i \models \varphi\} \in F.$$
 \end{stat} 
 
-\begin{proof}[Ультрапроизведения]
+% TODO: надо переписать. Вероятно полностью.
+\begin{proof} (теоремы Лося)
     Доказательство приведём индукцией по построению формулы. Простейшие формулы в виде предиката и равенства двух термов рассматриваются очевидно, это - база. Обратим внимание на функциональный символ $f \in \sigma$. Как он интерпретируется? $$f^{\mathbb{A}_F}([a_1], \ldots, [a_k]):= [\lambda_i f^{\mathbb{A}_i}(a_1(i), \ldots, a_k(i))]$$ 
 
     Из определения декартового у нас было $$f^{\mathbb{A}}([a_1], \ldots, [a_k]):= \lambda_i f^{\mathbb{A}_i}(a_1(i), \ldots, a_k(i)),$$ 
 
-    где $i \mathbb{A}psto f^{\mathbb{A}_i}(a_1(i), \ldots, a_k(i))$, и $\lambda x f(x) = f$. Причём согласно фильтру 
+    где $i \mathbb{A}\mapsto f^{\mathbb{A}_i}(a_1(i), \ldots, a_k(i))$, и $\lambda x f(x) = f$. Причём согласно фильтру 
 
     \begin{equation*}
         \begin{aligned}
@@ -29,9 +31,9 @@
         \end{aligned}
     \end{equation*} 
 
-    $J_i \{i| a_1(i) = a_1'(i)\} \in F$, $f^{\mathbb{A}_i}(a_1(i), \ldots, a_k(i)) = J_1 \cap \ldots, \cap J_k \in F = f^{\mathbb{A}}(a_1', \ldots, a_k')$. Константы $c^{\mathbb{A}}$ интерпретируются как $\lambda_i c^{\mathbb{A}_i}$, переменные означиваются каким-то образом $x_j \mathbb{A}psto a_j(i)$, $t^{\mathbb{A}_i} = f^{\mathbb{A}_i}(t_1^{\mathbb{A}_i}, \ldots, t_k^{\mathbb{A}_i})$, значит, $t^{\mathbb{A}}(a_1, \ldots, a_k) = f^{\mathbb{A}}(t_1^{\mathbb{A}}(\overline{a}), \ldots, t_k^{\mathbb{A}}(\overline{a}))$. Соответственно, из определения это верно для простейших формул. Перейдём теперь к сложным формулам. \ 
+    $J_i \{i\mid a_1(i) = a_1'(i)\} \in F$, $f^{\mathbb{A}_i}(a_1(i), \ldots, a_k(i)) = J_1 \cap \ldots, \cap J_k \in F = f^{\mathbb{A}}(a_1', \ldots, a_k')$. Константы $c^{\mathbb{A}}$ интерпретируются как $\lambda_i c^{\mathbb{A}_i}$, переменные означиваются каким-то образом $x_j \mathbb{A}psto a_j(i)$, $t^{\mathbb{A}_i} = f^{\mathbb{A}_i}(t_1^{\mathbb{A}_i}, \ldots, t_k^{\mathbb{A}_i})$, значит, $t^{\mathbb{A}}(a_1, \ldots, a_k) = f^{\mathbb{A}}(t_1^{\mathbb{A}}(\overline{a}), \ldots, t_k^{\mathbb{A}}(\overline{a}))$. Соответственно, из определения это верно для простейших формул. Перейдём теперь к сложным формулам. \ 
     
-    Более сложные формулы строятся из простых при помощи логических связок и кванторов. Достаточно рассматривать только конъюнкцию, отрицанию и существование (остальные выражаются через них). Пусть мы хотим проверить $$\mathbb{A}_F \models (\varphi \wedge \psi)(a_1, \ldots, a_k).$$ Это означает, что $\mathbb{A}_F \models \varphi([\overline{a}])$ и $\mathbb{A} \models \psi ([\overline{a}])$. $J = \{i | \mathbb{A}_i \models \varphi(\overline{a(i)})\} \in F$. Проверяется $i \in J \cap K$, $$\{\mathbb{A}_i \models (\varphi \wedge \psi)(a_1(i), \ldots, a_k(i))\} \in F.$$ Отрицание также легко проверяется для ультрафильтров, так как есть свойство дополнения. 
+    Более сложные формулы строятся из простых при помощи логических связок и кванторов. Достаточно рассматривать только конъюнкцию, отрицанию и существование (остальные выражаются через них). Пусть мы хотим проверить $$\mathbb{A}_F \models (\varphi \wedge \psi)(a_1, \ldots, a_k).$$ Это означает, что $\mathbb{A}_F \models \varphi([\overline{a}])$ и $\mathbb{A} \models \psi ([\overline{a}])$. $J = \{i \mid \mathbb{A}_i \models \varphi(\overline{a(i)})\} \in F$. Проверяется $i \in J \cap K$, $$\{\mathbb{A}_i \models (\varphi \wedge \psi)(a_1(i), \ldots, a_k(i))\} \in F.$$ Отрицание также легко проверяется для ультрафильтров, так как есть свойство дополнения. 
 
     \begin{equation*}
         \begin{aligned}
@@ -64,20 +66,31 @@
     Это~— элементы $F$, которые в разных случаях лежат друг в друге. Не уловил суть, надо будет дописать и переписать.
 \end{proof} 
 
-\begin{theorem}
-    Бесконечное множество $\Gamma$ имеет модель, если каждое его конечное поднмонжество $\Gamma$ имеет модель.
+\begin{theorem}[Гёделя-Мальцева о компактности]
+    Бесконечное множество предложений $\Gamma$ имеет модель тогда и только тогда, когда каждое его конечное подмножество $\Gamma$ имеет модель.
 \end{theorem}  
 
 \begin{proof}
-    Пусть $I = \set*{i\:\middle\vert\: i \text{~— конечное подмножество } \Gamma}$. Для каждого $i \in I \mapsto \mathbb{A}_i$ существует своя структура. Тогда можно построить следующее семейство структур $\{\mathbb{A}_i\}_{i \in I}$, где $\mathbb{A}_i \models i$. Рассмтрим декартово произведение $\mathbb{A} = \prod_i \mathbb{A}_i$ и $G_i = \set*{j \in I\:\middle\vert\: i \subseteq j}$. Если $k \in I$, то $G_i \cap G_k = G_{i \cup k}$ ($I$ - бесконечно). Утверждается, что $F = \set*{A \subseteq I\:\middle\vert\: \exists i (G_i \subseteq A)}$~— ультрафильтр. Свойства проверяются очевидно. 
+    В одну сторону очевидно. Доказываем в обратную сторону.
+
+    Пусть $I = \set*{i\:\middle\vert\: i \text{~— конечное подмножество } \Gamma}$.
+    Из существования модели для каждого $i\in I$, по аксиоме выбора, существует семейство структур $\{\ba_i\}_{i\in I}$ такое, что $\forall i~\ba_i\models i$.
+
+    % Рассмтрим декартово произведение $\mathbb{A} = \prod_i \mathbb{A}_i$ и $G_i = \set*{j \in I\:\middle\vert\: i \subseteq j}$. Если $k \in I$, то $G_i \cap G_k = G_{i \cup k}$ ($I$ - бесконечно). Утверждается, что $F = \set*{A \subseteq I\:\middle\vert\: \exists i (G_i \subseteq A)}$~— ультрафильтр. Свойства проверяются очевидно. 
+   
+    Будем строить ультрапроизведение, соответствующее декартовому произведению $\prod_{i\in I} \ba_i$, подходящее под требования теоремы. Начнём с построения фильтра. Для каждого $i\in I$ пусть $G_i = \set*{j \in I\:\middle\vert\: i \subseteq j}$. Для каждой пары $i, j\in I$ выполнено $G_i\cap G_k = G_{i\cup k}$. Пусть $F = \set*{A \subseteq I\:\middle\vert\: \exists i~G_i \subseteq A}$. Можно проверить, что это фильтр ($\emptyset$ отсутствует, так как все $G_i$ непусты; надмножество $A\supseteq G_i$ тоже содержит $G_i$; пересечение $A\supseteq G_i$ и $B\supseteq G_j$ содержит $G_{i\cup j}$). По доказанному ранее, существует ультрафильтр $H\supseteq F$.
+
+    Наконец, рассмотрим ультрапроизведение $\ba_H$. Для любой формулы $\vfi\in\Gamma$, имеем $\{\vfi\}\in I$, поэтому $G_{\{\vfi\}}\in F\subseteq H$. По теореме Лося, так как $\forall i\in G_{\{\vfi\}}$ выполнено $\ba_i\models \vfi$, то и $\ba_H\models \vfi$.
 \end{proof}
 
+% Раздел 5
+\subsubsection{Понижение и повышение мощности}
+
 \begin{definition} \ 
-    
     \begin{itemize}
-        \item $\mathbb{A} \subseteq \mathbb{B}$ iff значения простых формул в $\mathbb{A}$ и $\mathbb{B}$ совпадают; 
-        \item $\mathbb{A} \preceq \mathbb{B}$, если $\mathbb{A} \subseteq \mathbb{B}$ и значения любых формул в $A$ и $B$ совпадают (элементарная подструктура); 
-        \item $\mathbb{A} \equiv \mathbb{B}$, если они удовлетворяют одни и те же предложения (элементарная эквивалентность).
+        \item (Уже определялось выше) \emph{$\ba$ — подструктура $\bb$} (обозначается $\mathbb{A} \subseteq \mathbb{B}$), если $A\subseteq B$ и значения простых формул на элементах $\ba$ в $\mathbb{A}$ и $\mathbb{B}$ совпадают; 
+        \item \emph{$\ba$ — элементарная подструктура $\bb$} (обозначается $\mathbb{A} \preceq \mathbb{B}$), если $A \subseteq B$ и значения любых формул на элементах $\mathbb{A}$ в $\ba$ и $\bb$ совпадают (то есть $\forall \overline{a}\in \ba$ выполнено $\vfi^\ba(\overline{a}) = \vfi^\bb(\overline{a})$); 
+        \item \emph{$\ba$ элементарно эквивалентно $\bb$} (обозначается $\mathbb{A} \equiv \mathbb{B}$), если они удовлетворяют одни и те же предложения.
     \end{itemize}
 \end{definition}
 
@@ -86,5 +99,5 @@
 \end{stat}
 
 \begin{theorem}[Лёвенгейма-Сколема, понижение]
-    Пусть есть $\mathbb{A}$, $X \subseteq \mathbb{A}$, $|X| \leq |\text{For}_\sigma|$. Тогда существует $\mathbb{B} \preceq \mathbb{A}$: $X \subseteq \mathbb{B}$ и $|\mathbb{B}| \leq |\text{For}_\sigma|$. 
+    Пусть есть $\mathbb{A}$, $X \subseteq A$, $|X| \leq |\text{For}_\sigma|$. Тогда существует $\mathbb{B} \preceq \mathbb{A}$: $X \subseteq B$ и $|\mathbb{B}| \leq |\text{For}_\sigma|$. 
 \end{theorem}
