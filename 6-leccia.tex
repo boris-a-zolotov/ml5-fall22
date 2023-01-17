@@ -1,37 +1,23 @@
 \subsection{Лекция 6}
+% В прошлый раз мы остановились на доказательстве теоремы. \\
+% \begin{theorem}
+    % Аксиоматизируемый класс $\Pi_1$-аксиоматизируемый тогда и только тогда, когда он замкнут относительно подструктур.
+% \end{theorem}
 
-В прошлый раз мы остановились на доказательстве теоремы. \\
-
-\begin{theorem}
-    Аксиоматизируемый класс $\Pi_1$-аксиоматизируемый тогда и только тогда, когда он замкнут относительно подструктур.
-\end{theorem}
-
-\begin{proof}
-    Справа налево. $K = \text{Mod}(T)$, и введём класс аксиом $\Gamma = \{\varphi \in \Pi_1 | T \models \varphi\}$. И оказывается, что $K = \text{Mod}(\Gamma)$, мы хотим это доказать. Включение $K$ в $\text{Mod}(\Gamma)$~— очевидно. В другую~— возьмём некоторую модель множества $\Gamma$ ($\mathbb{B} \models \Gamma$), тогда нужно проверить, что $\mathbb{B} \in K$, Конечно, нужно воспользоваться замкнутостью. Достаточно найти $\mathbb{C} \in K$, что $\mathbb{B} \subseteq \mathbb{C}$. Утверждается, что существует $\mathbb{A} \models T$ такая, что $\text{Th}_{\Sigma_1} \supseteq \text{Th}_{\Sigma_1}(\mathbb{B})$. 
-
-    \begin{definition}
-        Если что, $\text{Th}(\mathbb{A}) = \{\varphi | \mathbb{A} \models \varphi\}$, $\Phi \subseteq \text{Sent}_\sigma$, $\text{Th}_{\Phi}(\mathbb{A}) = \{\varphi \in \Phi | \mathbb{A} \models \varphi\}$.
-    \end{definition}
-
-    В точности нам нудно доказать, что для $T \cup \text{Th}_{\Sigma_1}(\mathbb{B})$ имеется модель. Предположим, $T \cup \{\psi_1, \ldots, \psi_n\}$ не имеет модель. $\psi = \psi_1 \wedge \ldots \wedge \psi_n \in \Sigma_1$, $T \cup \{\psi\}$ не имеет модели. $T \models \neg \psi \in \Pi_1$, а значит, $\mathbb{B} \models \neg \psi$, а с другой стороны $\mathbb{B} \models \psi$, противоречие. \\ 
-
-    Нам нужно вложить $\mathbb{B} \subseteq \mathbb{C} \models T$. Это всё равно, что найти модель для её диаграммы. То есть равносильно, что $T \cup D(\mathbb{B})$ имеет модель. Применим в очередной раз теорему о компактности. То есть хочется, чтобы $T \cup \{\delta_1, \ldots, \delta_m\}$ имело модель, где $\delta_1 = \delta_i(\overline{c})$ ($c \in \sigma_B$). Возьмём какие-то новые переменные и подставим: $\mathbb{B} \models \exists \overline{x} (\delta_1(\overline{x}) \wedge \ldots \wedge \delta_m(\overline{x}))$. Это предложение истино в $\mathbb{B}$, лежит в $\Sigma_1$, а значит, истино и в $\mathbb{A}$. Тогда при подходящей интерпретации $\mathbb{A}$~— искомая модель.
-\end{proof}
-
-Докажем теперь аналогичную теорему для $\Pi_2$.  \\ 
+Докажем теперь аналогичную теорему для $\Pi_2$. \footnote{Окончание доказательства с прошлой лекции в разделе прошлой лекции} \\ 
 
 \begin{theorem}[Теорема Чэна-Лося-Сушко] % Название сказали на седьмой лекции
-    Аксиоматизируемый класс $\Pi_2$-аксиоматизируемый тогда и только тогда, когда он замкнут относительно объединений цепей стртуктур.
+    Аксиоматизируемый класс является $\Pi_2$-аксиоматизируемым тогда и только тогда, когда он замкнут относительно объединений цепей структур.
 \end{theorem}
 
 \begin{remark}
-    Что значит последнее условие? Если у нас есть возрастающая бесконечная цепочка структур $\mathbb{A}_0 \subseteq \mathbb{A}_1 \subseteq \ldots$, тогда можно построить $\mathbb{A} = \bigcup \mathbb{A}_n$. $A = \bigcup A_n$, предикаты, функции  и константы интерпретируются просто через объединение $P^{\mathbb{A}} = \bigcup P^{\mathbb{A}_n}$, и даже если с первого взгляда не верится, это~— корректное определение структуры. Таким образом, класс замкнут относительно объединений цепей, если $\forall n (\mathbb{A}_n \in K)$, $\mathbb{A}_0 \subseteq \mathbb{A}_1 \subseteq \ldots$, $\bigcup \mathbb{A}_n \in K$. 
+    Что значит последнее условие? Если у нас есть возрастающая бесконечная цепочка структур $\mathbb{A}_0 \subseteq \mathbb{A}_1 \subseteq \ldots$, тогда можно построить $\mathbb{A} = \bigcup \mathbb{A}_n$. Носителем будет $A = \bigcup A_n$, предикаты, функции  и константы интерпретируются просто через объединение $P^{\mathbb{A}} = \bigcup P^{\mathbb{A}_n}$, и даже если с первого взгляда не верится, это~— корректное определение структуры. Таким образом, класс замкнут относительно объединений цепей, если $\forall n\,(\mathbb{A}_n \in K)$, $\mathbb{A}_0 \subseteq \mathbb{A}_1 \subseteq \ldots$, то и $\bigcup \mathbb{A}_n \in K$. 
 \end{remark}
 
 \begin{proof}
-    Докажем сначала в лёгкую сторону, слева направо. Пусть у нас есть $K = \text{Mod}(T)$, $T \subseteq \Pi_2$. А также цепочка $\mathbb{A}_i \in K$, тогда нам нужно показать, что их объединение $\mathbb{A} \in K$. Рассмотрим $\varphi \in T$, мы хотим проверить, что $\mathbb{A} \models \varphi$. $\varphi: \forall \overline{x} \exists \overline{y} \psi (\overline{x}, \overline{y})$, $\psi$~— бескванторная. $\mathbb{A}_n \models \varphi$ при любом $n$. $\overline{a} \in A$~— значение $\overline{x}$. Тогда нужно доказать, что $\mathbb{A} \models \exists \overline{y} \psi(\overline{a}, \overline{y})$. $\overline{a} \in A_n$ для некоторого $n \geq 0$ ($\mathbb{A}_n \subseteq \mathbb{A}$). $\mathbb{A}_n \models \exists \overline{y} \psi (\overline{a}, \overline{y})$. И найдутся $\overline{b} \in A_n$, $\mathbb{A}_n \models \psi(\overline{a}, \overline{b})$. Ладно, я не успеваю и теряюсь в логике повествования. \\ 
+    Докажем сначала в лёгкую сторону, слева направо. Пусть у нас есть $K = \text{Mod}(T)$, $T \subseteq \Pi_2$. А также цепочка $\mathbb{A}_i \in K$, тогда нам нужно показать, что их объединение $\mathbb{A} \in K$. Рассмотрим $\varphi \in T$, мы хотим проверить, что $\mathbb{A} \models \varphi =  \forall \overline{x}\, \exists \overline{y}\, \psi (\overline{x}, \overline{y})$, $\psi$~— бескванторная. $\mathbb{A}_n \models \varphi$ при любом $n$. $\overline{a} \in A$~— значение $\overline{x}$. Тогда нужно доказать, что $\mathbb{A} \models \exists \overline{y} \psi(\overline{a}, \overline{y})$. $\overline{a} \in A_n$ для некоторого $n \geq 0$ ($\mathbb{A}_n \subseteq \mathbb{A}$). $\mathbb{A}_n \models \exists \overline{y}\, \psi (\overline{a}, \overline{y})$. Значит найдётся $\overline{b} \in A_n$ такой, что  $\mathbb{A}_n \models \psi(\overline{a}, \overline{b})$. Тогда и $\ba\models\psi(\overline{a},\overline{b})$, значит $\ba\models\exists\overline{y}\,\psi(\overline{a}, \overline{y})$. $\overline{a}$ брали произвольным, поэтому и исходная формула выводится.
 
-    В обратную сторону начало аналогичное. Включение слева направо опять понятно, и далее схема тоже схожа, мы только хотим, чтобы $\mathbb{B} \models T$. Найдём объединение возрастающей цепочки $K$-структур $\mathbb{B}_\omega \succeq \mathbb{B}$. Ну то есть, мы её построим для начала. Доказательство того, что существует $A \models T$ такое, что $\text{Th}_{\Sigma_2}(\mathbb{A}) \subseteq \text{Th}_{\Sigma_2}(\mathbb{B})$, аналогично предыдущей теореме. Докажем ещё одно вспомогательное утверждение. \\ 
+    В обратную сторону начало аналогичное предыдущей теореме: для $K = \text{Mod}(T)$ рассматриваем $\Gamma = \set*{\vfi\in\Pi_2 \mid T\models \vfi}$ и доказываем $K=\text{Mod}(\Gamma)$.  Включение слева направо опять понятно, и далее схема тоже схожа, для $\bb\models \Gamma$ мы только хотим, чтобы $\mathbb{B} \models T$. Найдём объединение возрастающей цепочки $K$-структур $\mathbb{B}_\omega \succeq \mathbb{B}$. Ну то есть, мы её построим для начала. Доказательство того, что существует $A \models T$ такое, что $\text{Th}_{\Sigma_2}(\mathbb{A}) \supseteq \text{Th}_{\Sigma_2}(\mathbb{B})$, аналогично предыдущей теореме. Докажем ещё одно вспомогательное утверждение. \\
 
     Существуют $\mathbb{A}' \equiv \mathbb{A}$ и $\mathbb{B}' \succeq \mathbb{B}$ такие, что $\mathbb{B} \subseteq \mathbb{A}' \subseteq \mathbb{B}'$. Рассмотрим $\text{Th}(\mathbb{A}) \cup \text{Th}_{\Pi_1}(\mathbb{B}_B)$, где $\mathbb{B}_B$~— естественное $\sigma_B$-обогащение $\mathbb{B}$. Если взять любое конечное множество из второй теории объединения, то аналогично предыдущей теореме, они они имеют константы: $\delta_1(\overline{c}), \ldots, \delta_m(\overline{c})$. Значит, 
 
@@ -39,7 +25,7 @@
         \mathbb{B} \models \exists \overline{x} (\delta_1(\overline{x}) \wedge \ldots \wedge \delta_m(\overline{x})) \in \Sigma_2,
     \]
 
-    следовательно, истино и в $\mathbb{A}_B$. $\mathbb{A}_B'$~— любая модель $\text{Th}(\mathbb{A}) \cup \text{Th}_{\Pi_1}(\mathbb{B}_B)$ ($\mathbb{A}'$~— объединение до $\sigma$-структуры). $\mathbb{A}' \equiv \mathbb{A}$ и $\mathbb{B} \subseteq \mathbb{A}'$, $\text{Th}_{\Sigma_1}(\mathbb{B}_B) \supseteq \text{Th}_{\Sigma_1}(\mathbb{A}'_B)$. \\ 
+    следовательно, истино и в $\mathbb{A}_B$. $\mathbb{A}_B'$~— любая модель $\text{Th}(\mathbb{A}) \cup \text{Th}_{\Pi_1}(\mathbb{B}_B)$ ($\mathbb{A}'$~— объединение до $\sigma$-структуры). $\mathbb{A}' \equiv \mathbb{A}$ и $\mathbb{B} \subseteq \mathbb{A}'$, отрицания к формулам из $\Pi_1$ лежат в $\Sigma_1$, поэтому из $\text{Th}_{\Sigma_1}(\mathbb{B}_B) \supseteq \text{Th}_{\Sigma_1}(\mathbb{A}'_B)$. \\ 
 
     Рассмотрим теперь $D(\mathbb{A}'_B) \cup \text{Th}(\mathbb{B}_B)$. Точно так же рассуждая, как и выше, эта теория имеет модель $\mathbb{B}'_{A'}$ такую, что $\mathbb{B} \preceq \mathbb{B}'$. Исходя из этого и будем строить цепочку. \\ 
 
@@ -54,22 +40,22 @@
 
 \begin{stat}
     Для непротиворечивой теории $T$ равносильны следующие условия: 
-
     \begin{enumerate}
         \item $T$~— полна; 
-        \item $[T] = \text{Th} (\mathbb{A})$, для любой $\mathbb{A} \models T$ (где $[T] = \{\varphi | T \models \varphi\}$); 
+        \item $[T] = \text{Th} (\mathbb{A})$, для любой $\mathbb{A} \models T$ (где $[T] = \{\varphi \mid T \models \varphi\}$ — \emph{замыкание теории}); 
         \item $\text{Th}(\mathbb{A}) = \text{Th}(\mathbb{B})$ для любых $\mathbb{A}$, $\mathbb{A}$ $\models T$.
     \end{enumerate}
 \end{stat}
 
+\begin{definition}
+    $T$ называется категоричной в мощности $H$, если $T$ имеет единственную с точностью до изоморфизма модель мощности $H$.
+\end{definition}
+
 \begin{theorem}[тест Воота]
     Если теория не имеет конечных моделей и категорична в некоторой мощности $\geq |\text{For}_\sigma|$, то она полна.
 \end{theorem}
+% должно было быть на практике для частного случая.
 
 \begin{definition}
-    $T$ называется категоричной в можщности $H$, если $T$ имеет единственную с точностью до изоморфизма модель мощности $H$.
-\end{definition}
-
-\begin{definition}
-    $T$ модельно полна, если $\subseteq$ и $\preceq$ на $\text{Mod}(T)$ совпадают.
+    Непротиворечивая теория $T$ \emph{модельно полна}, если $\subseteq$ и $\preceq$ на $\text{Mod}(T)$ совпадают.
 \end{definition}
