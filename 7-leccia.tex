@@ -1,7 +1,6 @@
 \subsection{Лекция 7}
 
-\begin{theorem} \  
-
+\begin{theorem} Для непротиворечивой теории $T$ равносильны следующие условия:
     \begin{enumerate}
         \item $T$~— модельно полна; 
         \item Для любой $\mathbb{A} \models T$, теория $T \cup D(\mathbb{A})$ полна; 
@@ -36,7 +35,7 @@
     %противоречие.
     
     % 4=>5
-    $4\Rightarrow 5$. Рассмотрим произвольную $\varphi$. Она лежит на одном из уровней иерархии формул. Расссмотрим только случаи $\varphi\in \Pi_2$ и $\varphi\in\Sigma_2$. В остальных случаях рассуждения аналогичны.
+    $4\Rightarrow 5$. Рассмотрим произвольную $\varphi$. Она лежит на одном из уровней иерархии формул. Рассмотрим только случаи $\varphi\in \Pi_2$ и $\varphi\in\Sigma_2$. В остальных случаях рассуждения аналогичны.
 
     Для формулы $\varphi(\overline{z})\in\Pi_2$ существует запись в виде $\forall \overline{x}~\exists \overline{y}~\psi(\overline{x}, \overline{y}, \overline{z})$. Формула $\exists \overline{y}~\psi(\overline{x}, \overline{y}, \overline{z})$ лежит в $\Sigma_1$, поэтому по пункту 4 существует $\psi'(\overline{x}, \overline{z})\in\Pi_1$, эквивалентная ей по модулю $T$. Значит $\varphi \equiv_T \forall \overline{x}~\psi' \in \Pi_1$.
 
@@ -80,8 +79,9 @@
         Из модельной полноты имеем $\mathbb{A}_0 \preceq \mathbb{A}_1 \preceq \ldots$, отсюда нетрудно показать, что $\mathbb{A}_n \preceq \mathbb{A}$, тогда $T \text{\rotatebox[origin=c]{180}{$\models$}} \mathbb{A}_n \equiv \mathbb{A}$. 
         
         % доказательство пункта 2
-        \item Остаётся на совесть юных читателей! (доказательство не было закончено)
+        \item %Остаётся на совесть юных читателей! (доказательство не было закончено)
         %TODO: написать набросок доказательства с конца седьмой - начала восьмой лекции
+            Набросок доказательства приводится ниже.
 
         % доказательство пункта 3
         \item $\mathbb{A}$~— структура, изоморфная подструктуре любой модели $\mathbb{B} \models T$, тогда из модельной полноты $\forall \mathbb{B}~(\mathbb{A} \preceq \mathbb{B})$. Для любой $\varphi$ выполнено либо $\mathbb{A} \models \varphi$, либо $\mathbb{A} \models \neg \varphi$. Тогда одна из этих формул верна во всех моделях $T$, откуда и получим, что из $T$ следует либо эта формула, либо её отрицание. 
