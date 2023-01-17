@@ -116,10 +116,13 @@ $\sigma_c$ — счётная сигнатура, поэтому $\text{Prop}_{\
 
     Дальше проверяем несколько несложных утверждений:
     \begin{enumerate}
-        \item $\sim$ является отношением эквивалентности
-        \item Если $s_1\sim t_1, \ldots, s_n\sim t_n$, выполняется $T\vdash P(s_1, \ldots, s_n)$, то $T\vdash P(t_1, \ldots, t_n)$
-        \item Если $s_1\sim t_1, \ldots, s_n\sim t_n$, то $f(s_1, \ldots, s_n)\sim f(t_1, \ldots, t_n)$
-        \item Пусть $t = t(x_1, \ldots, x_n)$~— терм, $s_1, \ldots, s_n\in M$. Тогда $t^\mathbb{A}([s_1], \ldots, [s_n]) = [t(s_1, \ldots, s_n)]$
-        \item %TODO
+        \item $\sim$ является отношением эквивалентности;
+        \item Если $s_1\sim t_1, \ldots, s_n\sim t_n$, выполняется $T\vdash P(s_1, \ldots, s_n)$, то $T\vdash P(t_1, \ldots, t_n)$;
+        \item Если $s_1\sim t_1, \ldots, s_n\sim t_n$, то $f(s_1, \ldots, s_n)\sim f(t_1, \ldots, t_n)$;
+        \item Пусть $t = t(x_1, \ldots, x_n)$~— терм, $s_1, \ldots, s_n\in M$. Тогда $t^\mathbb{A}([s_1], \ldots, [s_n]) = [t(s_1, \ldots, s_n)]$;
+        \item Для любой формулы $g(x_1, \dots, x_n)$ и для $s_1, \dots, s_k\in M$ выполнено $$\ba\models \vfi([s_1], \dots, [s_k]) \iff T\vdash \vfi(s_1, \dots, s_k)$$
     \end{enumerate}
+    Первые три утверждения проверяются с помощью аксиом равенства. Первое свойство позволяет корректно определить $A = M/\equiv$ — носитель будущей структуры. Следующие два свойства позволяют корректно задать интерпретацию $I$ сигнатуры на этом множестве: в $\ba = (A, I)$ $f^\ba([t_1], \dots, [t_n])\defeq[f(t_1, \dots, t_n)]$, $P^\ba([t_1],\dots,[t_n])\iff T\vdash P(t_1, \dots, t_n)$, $c^\ba\defeq [c]$.
+
+    Предпоследнее свойство доказывается по индукции.
 \end{proof}
